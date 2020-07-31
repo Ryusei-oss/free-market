@@ -1,3 +1,337 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "reset";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+//ページの大枠/////////////////////////////////////////////
+.mypage{
+  background-color: rgb(245, 241, 241);
+  width: 100vw;
+
+  &__top-bar{
+    background-color:#ffffff;
+    width: 100vw;
+    height: 20vh;
+  }
+
+  &__adress{
+    background-color:#ffffff;
+    width: 100vw;
+    height: 7vh;
+    line-height: 7vh;
+    padding-left: 150px;
+    border-bottom: 1px solid rgb(204, 201, 201); 
+  }
+
+  &__middle-bar{
+    width: 70vw;
+    margin: 0 auto; 
+  }
+
+  &__bottom-bar{
+    height: 100vh;
+    background-color: black;
+  }
+
+  &__sell{
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+    width: 90px;
+    height: 90px;
+    background: #3CCACE;
+    text-align: center;
+    border-radius: 4%;
+    bottom: 32px;
+    right: 32px;
+    position: fixed;
+    padding: 15px;
+  }
+}
+
+.color{
+  background-color: orange;
+}
+.default-font{
+  text-decoration: none;
+  color: black;
+  font-family:"Source Sans Pro", Helvetica;
+}
+///////////////////////////////////////////////////////////////////
+
+//トップバーの部分***************************************************
+.top-bar{
+  &__upper{
+    display: flex;
+    &--page-title{
+      height: 10vh;
+      width: 30vw;
+      text-align: center;
+      margin: 10px;
+    }
+    &--search-bar{
+      height: 10vh;
+      width: 80vw;
+      text-align: center;
+      margin: 10px;
+    }
+  }
+
+  &__downer{
+    display:flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(204, 201, 201); 
+    &__category-bland{
+      height: 5vh;
+      display: flex;
+      margin-left: 150px;
+      &--category{
+        padding: 0px;
+      }
+      &--bland{
+        padding-left: 20px;
+      }
+    }
+    &__menu{
+      height: 5vh;
+      width: 60vw;
+      display: flex;
+      flex-direction: row-reverse;
+      &--tag{
+        background-color: white;
+        text-align: center;
+        width: 20%;
+        height: 93%;
+      }
+    }
+  }
+}
+.search{
+  width: 35px;
+  height: 35px;
+  background: #3CCACE;
+  border-radius: 8%;
+  padding: 8px 4px 0px 8px;
+  position: absolute;
+}
+//***************************************************************
+
+//ミドルバーの部分++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.middle-bar{
+  display: flex;
+  &__tabs{
+    width: 30%;
+    height: 150vh;
+    margin-right: 2vw;
+  }
+
+  &__contents{
+    width: 70%;
+    &__me{
+      width: 100%;
+      //height: 50%;
+    }
+    &__purchase{
+      width: 100%;
+      //height: 50%;
+    }
+  }
+}
+
+.me{
+  background-color:#ffffff;
+  height: 90vh;
+  width: 100%;
+  position: relative;
+  &__icon{
+    background-color: #3CCACE;
+    height: 25%;
+    line-height: 10vh;
+    &--tag{
+      text-align: center;
+      margin:0 1vw;
+    }
+  }
+  &__tabs{
+    height: 10vh;
+    display:flex;
+    line-height: 10vh;
+    text-align: center;
+    &--news{
+      background-color:#ffffff;
+      border-top: 1vh solid blue;
+      height: calc(100% - 1vh);
+      width: 50%;
+    }
+    &--todo{
+      background-color: gray;
+      //border-top: 5px solid #3CCACE;
+      height: 100%;
+      width: 50%;
+    }
+  }
+  &__damy{
+    background-color: white;
+    height: 10vh;
+    border: 1px solid rgb(204, 201, 201); 
+    line-height: 10vh;
+    padding-left: 1vw;
+  }
+  &__show{
+    background-color: rgb(245, 241, 241);
+    position: absolute;
+    text-align: center;
+    line-height: 10vh;
+    height: 10vh;
+    width: 96%;
+    bottom: 1vh;
+    margin: 1vw;
+  }
+}
+
+.jus-cent{
+  display: flex;
+  justify-content: center;
+}
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//ミドルバータブの部分 -------------------------------------------------------------
+.tabs{
+  &__mypage{
+    width: 100%;
+    height: 30%;
+  }
+
+  &__melpay{
+    width: 100%;
+    height: 30%;
+  }
+
+  &__config{
+    width: 100%;
+    height: 30%;
+  }
+}
+.middle-bar-tag{
+  border-radius: 2%;
+  height: 20%;
+  border: solid 1px #f5f0f0;
+  line-height: 10vh;
+  padding-left: 1vw;
+  background-color:#ffffff;
+}
+
+.purchase{
+  background-color: #ffffff;
+  height: 100vh;
+  width: 100%;
+  margin-bottom: 10vh;
+  &__icon{
+    height: 10vh;
+    margin-top: 10vh;
+    line-height: 10vh;
+    padding-left: 1vw;
+    font-weight: bold;
+  }
+  &__tabs{
+    height: 10vh;
+    display:flex;
+    text-align: center;
+    line-height: 10vh;
+    &__trading{
+      border-top: 1vh solid #3CCACE;
+      height: calc(10vh - 1vh);
+      width: 50%;
+    }
+    &__purchase{
+      background-color: gray;
+      height: 10vh;
+      width: 50%;
+    }
+  }
+  &__lists{
+    border: 1px solid rgb(247, 246, 246);
+    width: 100%;
+    height: 10vh;
+    line-height: 10vh;
+    text-align: center;
+  }
+}
+
+.title{
+  font-weight: bold;
+  padding-left: 1vw;
+}
+
+//ボトムバーの部分/////////////////////////////////////////////////////
+.bottom-bar{
+  height: 100vh;
+
+  &__top{
+    position: relative;
+  }
+
+  &__contents{
+    display: flex;
+    &--content{
+      color: white;
+      //font-weight: bold;
+      text-align:center;
+      width: 33vw;
+      height:30vh;
+      margin-top: 3vh;
+    }
+  }
+
+  
+  
+  .text{
+    margin-top: 3vh;
+    color: white;
+    text-align:center;
+    font-size: 12px;
+  }
+
+  &__logo-box{
+    height:16vh;
+    &--logo{
+      text-align:center;
+    }
+    &--text{
+      color:white;
+      text-align: center;
+      font-size:14px;
+    }
+  }
+}
+.frase{
+  color: white;
+  text-align:center;
+  font-size: 25px;
+  font-weight: bold;
+  position: absolute;
+  width: 50vw;
+  top: 16vh;
+  left: 25vw;
+}
+
+#bold{
+  font-weight: bold;
+}
+
+#big-font{
+  font-weight: normal;
+  top:22vh;
+  font-size:36px;
+}
+
+.batch{
+  display:flex;
+  position: absolute;
+  bottom: 20px;
+  left: 40vw;
+}

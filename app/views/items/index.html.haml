@@ -1,0 +1,20 @@
+.mypage
+  .mypage__top-bar
+    = render partial: 'items/header'
+  .mypage__adress
+    = link_to 'FreeMarket', '#', class:"default-font"
+    > マイページ
+
+  .mypage__middle-bar
+    .middle-bar
+      =render partial: 'items/middle_side_bar'
+      =render partial: 'items/middle_contents'
+
+  .mypage__bottom-bar
+    =render partial: 'items/fotter'
+
+  .mypage__sell
+    出品する
+    = link_to image_tag("material/icon/icon_camera.png", size: "54x54"), "#"
+
+ 

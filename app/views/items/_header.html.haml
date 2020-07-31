@@ -1,0 +1,34 @@
+.top-bar
+  .top-bar__upper
+    = link_to image_tag("material/logo/logo.png", style: "width: 10vw;"),'#', class: "top-bar__upper--page-title"         
+    .top-bar__upper--search-bar
+      = form_with url: '#' do |form| 
+        = form.text_field :content, style: "height:40px;", class: 'message_form__contents--text', placeholder: '何かお探しですか？', size: "90"
+        = link_to image_tag("material/icon/icon-search 1.png", size: "25x25"),'#', class: "search"   
+  .top-bar__downer
+    .top-bar__downer__category-bland
+      .top-bar__downer__category-bland--category
+        = link_to '#', class: "default-font" do
+          = icon("fas", "fa fa-tag")
+          ブランドから探す
+      .top-bar__downer__category-bland--bland
+        = link_to '#', class: "default-font" do
+          = icon("fas", "fa fa-list")
+          カテゴリーから探す
+    .top-bar__downer__menu  
+      .top-bar__downer__menu--tag 
+        = link_to '#', class: "default-font" do
+          = icon("fas", "fa fa-smile")
+          マイページ
+      .top-bar__downer__menu--tag
+        = link_to '#', class: "default-font" do
+          = icon("fas", "fa fa-check")
+          やることリスト
+      .top-bar__downer__menu--tag
+        = link_to '#', class: "default-font" do
+          = icon("fas", "fa fa-bell")
+          お知らせ
+      .top-bar__downer__menu--tag
+        = link_to '#', class: "default-font" do
+          = icon("fas", "fa fa-heart")
+          いいね一覧

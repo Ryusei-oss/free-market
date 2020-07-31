@@ -1,0 +1,32 @@
+.resister{
+  width: 70%;
+  &__form{
+    background-color: #ffffff;
+    width: 100%;
+    margin-bottom: 10vh;
+    padding-bottom: 10px;
+    &--title{
+      height: 10vh;
+      margin-top: 2vh;
+      line-height: 10vh;
+      padding-left: 1vw;
+      font-weight: bold;
+    }
+    &--text{
+      border: 1px solid rgb(247, 246, 246);
+      width: 100%;
+      line-height: 10vh;
+      text-align: center;
+    }
+
+    &--resister{
+      background-color: rgb(245, 241, 241);
+      text-align: center;
+      line-height: 10vh;
+      height: 10vh;
+      width: 96%;
+      margin: 10px;
+    }
+  }
+}
+
