@@ -10,20 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_013811) do
+ActiveRecord::Schema.define(version: 2020_07_27_100230) do
+
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.date "birthday", null: false
+    t.string "nickname", null: false
+    t.string "tell"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "content"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["birthday"], name: "index_users_on_birthday", unique: true
+    t.index ["content"], name: "index_users_on_content", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["name"], name: "index_users_on_name", unique: true
+    t.index ["first_name"], name: "index_users_on_first_name", unique: true
+    t.index ["first_name_kana"], name: "index_users_on_first_name_kana", unique: true
+    t.index ["last_name"], name: "index_users_on_last_name", unique: true
+    t.index ["last_name_kana"], name: "index_users_on_last_name_kana", unique: true
+    t.index ["nickname"], name: "index_users_on_nickname", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["tell"], name: "index_users_on_tell", unique: true
   end
 
+  add_foreign_key "sns_credentials", "users"
 end

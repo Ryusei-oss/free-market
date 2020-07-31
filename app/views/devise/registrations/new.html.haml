@@ -1,32 +1,77 @@
 #account-page.account-page
-  .account-page__inner.clearfix
-    .account-page__inner--left.account-page__header
-      %h2 Create Account
-      %h5 新規アカウントの作成
-      = render "devise/shared/links"
-    .account-page__inner--right.user-form
+  .account-page__account-header
+    %h1.account-page__account-header__furima-logo
+      %a.account-page__account-header__furima-logo__url(href="http//furima.tokyo/")
+        = image_tag src="/assets/logo.png", size: "185x49"
+  .account-page__main.clearfix
+    .account-page__main.account-page__header
+      %h5 会員情報入力
+    .account-page__main.user-form
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = devise_error_messages!
         .field
           .field-label
-            = f.label :name
+            = f.label :ニックネーム
+            %span 必須
           .field-input
-            = f.text_field :name, autofocus: true
+            = f.text_field :nickname, placeholder: '例)フリマjapan'
         .field
           .field-label
-            = f.label :email
+            = f.label :メール
+            %span 必須
           .field-input
-            = f.email_field :email
+            = f.text_field :email, placeholder: 'PC/携帯どちらでも可'
         .field
           .field-label
-            = f.label :password
+            = f.label :パスワード
+            %span 必須
             %i (英数字8文字以上)
           .field-input
             = f.password_field :password, autocomplete: "off"
         .field
           .field-label
-            = f.label :password_confirmation
+            = f.label :パスワード確認
+            %span 必須
           .field-input
-            = f.password_field :password_confirmation, autocomplete: "off"
+            = f.password_field :password, autocomplete: "off"
+        .field
+          %h3
+            本人確認
+          %p
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .field-name
+          .field-label-name
+            = f.label :名前（全角）
+            %span 必須
+          .field-input-name
+            = f.text_field :content, class: 'last_name', placeholder: '例）山田'
+            = f.text_field :content, class: 'first_name', placeholder: '例）太郎'
+        .field-name
+          .field-label-name
+            = f.label :名前（カナ）
+            %span 必須
+          .field-input-name
+            = f.text_field :content, class: 'last_name_kana', placeholder: '例）ヤマダ'
+            = f.text_field :content, class: 'first_name_kana', placeholder: '例）タロウ'
+        .field
+          .field-label
+            = f.label :生年月日
+            %span 必須
+          .field-input
+            = f.date_field :birthday
         .actions
-          = f.submit "Create Account", class: 'btn'
+          = f.submit "次へ進む", class: 'btn'
+  .account-page__account-bottom
+    %nav
+      %ul.bottom__principle
+        %li 
+          %a.bottom__privacy{href: "#"}
+            プライバシーポリシー
+        %li
+          %a.bottom__rule{href: "#"}
+            フリマ利用規約
+        %li
+          %a.bottom__notation{href:"#"}
+            特定商取引に関する表記
+      %h4.logo__bottom
+        = image_tag src="/assets/logo-white.png", size: "185x49"
