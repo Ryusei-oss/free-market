@@ -18,17 +18,17 @@
 |address_id|references|null: false,foreign_key: true|
 |creditcard_id|references|null: false,foreign_key: true|
 ### Association
-- has_many: products
-- has_many: comments
-- has_many: purchases
+- has_many: products, dependent: :destroy
+- has_many: comments, dependent: :destroy
+- has_many: purchases, dependent: :destroy
 - has_many: likes
-- belongs_to: addresses
-- belongs_to: creditcards
+- belongs_to: addresses, dependent: :destroy
+- belongs_to: creditcards, dependent: :destroy
 
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_name|string|null: false|
+|name|string|null: false|
 |price|integer|null: false|
 |explanation|text|null: false|
 |size|string|null: false|
@@ -44,8 +44,8 @@
 ### Association
 - belongs_to: user
 - belongs_to: purchases
-- has_many: comments
-- has_many: images
+- has_many: comments, dependent: :destroy
+- has_many: images, dependent: :destroy
 - has_many: likes
 - belongs_to: brand
 - has_many :categories, through: :products_categories
