@@ -21,9 +21,9 @@
 - has_many: products, dependent: :destroy
 - has_many: comments, dependent: :destroy
 - has_many: purchases, dependent: :destroy
-- has_many: likes
-- belongs_to: addresses, dependent: :destroy
-- belongs_to: creditcards, dependent: :destroy
+- has_many: likes, dependent: :destroy
+- belongs_to: addresses
+- belongs_to: creditcards
 
 ## productsテーブル
 |Column|Type|Options|
@@ -46,7 +46,7 @@
 - belongs_to: purchases
 - has_many: comments, dependent: :destroy
 - has_many: images, dependent: :destroy
-- has_many: likes
+- has_many: likes , dependent: :destroy
 - belongs_to: brand
 - has_many :categories, through: :products_categories
 
