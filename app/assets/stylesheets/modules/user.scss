@@ -385,7 +385,17 @@
           border-bottom: 1px solid #F8F8FF;
         }
         .section{
-          
+          display: flex;
+          justify-content: space-between;
+          &__image{
+
+          }
+          &__products{
+
+          }
+        }
+        .detail{
+
         }
       }
     }
