@@ -1,13 +1,11 @@
 .header
   .header__main
     .header__main--left
-      %a{:href => "#"}
-        %img.logo{:src => "assets/logo/logo.png"}
+      = link_to image_tag("logo/logo.png",class: "logo"),'#'
     .header__main--right
       %input.searchBox{:name => "key", :placeholder => "キーワードから探す"}/
       .header__main--right__box
-        %a{:href => "#"}
-          %img.icon{:src => "assets/icon/icon-search 1.png"}
+        = link_to image_tag("icon/icon-search 1.png",class: "icon"),'#'
   .header__under
     %a.header__under--catBtn{:href => "#"}  カテゴリー
     %a.header__under--bldBtn{:href => "#"}  ブランド
