@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    omniauth_callbacks: 'users/omniauth_callbacks',
-    registrations: 'users/registrations'
-  }
-  root 'items#index'  
-  resources :users, only: :new
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'items/index'
+  root "items#index"
 end

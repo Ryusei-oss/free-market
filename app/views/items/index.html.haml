@@ -1,2 +1,57 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
+.products-detail
+  .header
+    .header-logo
+      .header-logo__url(href="http//furima.tokyo/")
+        = image_tag src="/assets/logo.png", size: "185x49"
+  .main
+    .user-form
+      .user-form__header
+        購入内容の確認
+      .section
+        .section__image
+          = image_tag src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fmeetsmore.com%2Fservices%2Fproduct-photographers%2Fmedia%2F2731&psig=AOvVaw1CyLLRBqdW-EISRSWBl5oO&ust=1596716368724000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOCaw5OGhOsCFQAAAAAdAAAAABAD', size:"150x30"
+        .section__products
+          .detail
+            ユニクロ
+          .price
+            %span
+              .commission
+              送料込み
+            %span
+              .fee
+              ２万円
+      .section
+        .pay
+          %span
+            支払い金額
+          %span
+            ２万円
+        .point
+          .point-title
+            %span.style-check__box{"data-test" => "point-checkbox"}
+              %span.style_input
+                %input{:disabled => "disabled", :name => "furima-points", :type => "checkbox", :value => ""}
+                %svg{"aria-hidden" => "true", :fill => "#ffffff", "fill-rule" => "evenodd", :height => "16", :viewbox => "0 0 24 24", :width => "16"}
+            = image_tag src="/assets/logo.png", size: "14x14"
+            %p.point-use ポイントの使用
+            %p.have-ponint 所持ポイント
+      .section
+        .method-of-payment
+          .method-of-payment__title
+            %h3.method-of-payment__paragraph 支払い方法
+            %a.register(href="http//furima.tokyo/") 
+            %span.entry 登録してください
+      .section
+        .address
+          .address__title
+            %h3.address__paragraph 配送先
+            %a.change(href="http//furima.tokyo/")
+          .address__text
+      .section
+        .detail
+          %p.detail__title
+            郵便局/コンビニ受取をご希望の方は、購入後に
+            %b.emphasis 取引画面
+          %p.payment-completion
+            支払い方法の入力を完了してください。
+  .footer
