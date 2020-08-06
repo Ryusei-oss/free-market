@@ -15,15 +15,14 @@
 |password|string|null: false|
 |tell|string|null: false|
 |icon|string||
-|address_id|references|null: false,foreign_key: true|
-|creditcard_id|references|null: false,foreign_key: true|
+
 ### Association
 - has_many: products, dependent: :destroy
 - has_many: comments, dependent: :destroy
 - has_many: purchases, dependent: :destroy
 - has_many: likes, dependent: :destroy
-- belongs_to: addresses
-- belongs_to: creditcards
+- has_one: addresses
+- has_one: creditcards
 
 ## productsテーブル
 |Column|Type|Options|
@@ -40,7 +39,6 @@
 |user_id|references|null: false,foreign_key: true|
 |category_id|references|null: false,foreign_key: true|
 |brand_id|references|null: false,foreign_key: true|
-|like_id|references|null: false,foreign_key: true|
 ### Association
 - belongs_to: user
 - belongs_to: purchases
@@ -70,8 +68,7 @@
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|brand|string||
-|product_id|references|null: false,foreign_key: true|
+|brand|string|null: false|
 ### Association
 - has_many: products
 
