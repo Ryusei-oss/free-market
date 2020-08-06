@@ -46,7 +46,7 @@
 - has_many: images, dependent: :destroy
 - has_many: likes , dependent: :destroy
 - belongs_to: brand
-- has_many :categories, through: :products_categories
+- belongs_to :category
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -54,16 +54,7 @@
 |category|string|null: false|
 |product_id|references|null: false,foreign_key: true|
 ### Association
-- has_many: products, through: :products_categories
-
-## products_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|product_id|references|null: false,foreign_key: true|
-|category_id|integer|null: false,foreign_key: true|
-### Association
-- belongs_to: product
-- belongs_to: category
+- has_many: products
 
 ## brandsテーブル
 |Column|Type|Options|
