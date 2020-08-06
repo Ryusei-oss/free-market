@@ -52,7 +52,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
-|product_id|references|null: false,foreign_key: true|
 ### Association
 - has_many: products
 
