@@ -75,7 +75,7 @@
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|comment|text||
+|comment|text|null: false|
 |user_id|references|null: false,foreign_key: true|
 |product_id|references|null: false,foreign_key: true|
 ### Association
