@@ -21,8 +21,8 @@
 - has_many: comments, dependent: :destroy
 - has_many: purchases, dependent: :destroy
 - has_many: likes, dependent: :destroy
-- has_one: addresses
-- has_one: creditcards
+- has_one: address
+- has_one: creditcard
 
 ## productsテーブル
 |Column|Type|Options|
