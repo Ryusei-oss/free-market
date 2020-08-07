@@ -7,10 +7,14 @@
       .header__main--right__box
         = link_to image_tag("icon/icon-search 1.png",class: "icon"),'#'
   .header__under
-    %a.header__under--catBtn{:href => "#"}  カテゴリー
-    %a.header__under--bldBtn{:href => "#"}  ブランド
-    %a.header__under--loginBtn{:href => "#"}  ログイン
-    %a.header__under--newBtn{:href => "#"}  新規会員登録
+    = link_to "#", class: "header__under--catBtn" do
+      カテゴリ
+    = link_to "#", class: "header__under--bldBtn" do
+      ブランド
+    = link_to "#", class: "header__under--loginBtn" do
+      ログイン
+    = link_to "#", class: "header__under--newBtn" do
+      新規会員登録
 
 .main
   .main__headline
@@ -18,8 +22,8 @@
     %p.content FURIMAは誰でもかんたんに出品・購入できる
     %p.content フリマアプリです
   .main__underline
-    %img.link{:src => "http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}
-    %img.link{:src => "http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}
+    = image_tag "http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", class:"link"
+    = image_tag "http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", class:"link"
 
 .explanation
   .explanation__title
@@ -28,14 +32,14 @@
   .explanation__contents
     .explanation__contents--main
       .explanation__contents--main__left
-        %img.image{:src => "assets/pict/pict-reason-01.jpg"}
-          .explanation__contents--main__left--number 1
+        = image_tag "pict/pict-reason-01.jpg", class:"image"
+        .explanation__contents--main__left--number 1
       .explanation__contents--main__center
-        %img.image{:src => "assets/pict/pict-reason-02.jpg"}
-          .explanation__contents--main__center--number ２
+        = image_tag "pict/pict-reason-02.jpg", class:"image"
+        .explanation__contents--main__center--number ２
       .explanation__contents--main__right
-        %img.image{:src => "assets/pict/pict-reason-03.jpg"}
-          .explanation__contents--main__center--number ３
+        = image_tag "pict/pict-reason-03.jpg", class:"image"
+        .explanation__contents--main__center--number ３
     .explanation__details
       .explanation__details--left
         %p.pic ３分 
@@ -63,10 +67,9 @@
     %p.content 出品・購入回数も業界最多です！
     %p.content ほしかったあの商品に出会えるかもしれません。
   .middle__link
-    %img.link{:src => "http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}
-    %img.link{:src => "http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}
-
-
+    = image_tag "http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", class:"link"
+    = image_tag "http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", class:"link"
+   
 
 
 .feature
@@ -76,11 +79,11 @@
   .feature__contents
     .feature__contents--main
       .feature__contents--main__left
-        %img.icon{:src => "assets/icon/icon-01.png"}
+        = image_tag "icon/icon-01.png", class:"icon"
       .feature__contents--main__center
-        %img.icon{:src => "assets/icon/icon-03.png"}
+        = image_tag "icon/icon-03.png", class:"icon"
       .feature__contents--main__right
-        %img.icon{:src => "assets/icon/icon-04.png"}
+        = image_tag "icon/icon-04.png", class:"icon"
     .feature__details
       .feature__details--left
         %p.title 簡単に売り買いできる
@@ -104,7 +107,7 @@
     .picup__top--contents
       .picup__top--contents__no1
         .picup__top--contents__no1--top
-          %img.image{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"}
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", class:"image"
         .picup__top--contents__no1--under
           %p.name ee
           %p.price 1000円
@@ -112,7 +115,7 @@
           %p.good ★０
       .picup__top--contents__no2
         .picup__top--contents__no2--top
-          %img.image{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class:"image"
         .picup__top--contents__no2--under
           %p.name product3
           %p.price 30000円
@@ -120,7 +123,7 @@
           %p.good ★０
       .picup__top--contents__no3
         .picup__top--contents__no3--top
-          %img.image{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class:"image"
         .picup__top--contents__no3--under
           %p.name product2
           %p.price 20000円
@@ -128,7 +131,7 @@
           %p.good ★０
       .picup__top--contents__no4
         .picup__top--contents__no4--top
-          %img.image{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", class:"image"
         .picup__top--contents__no4--under
           %p.name product1
           %p.price 10000円
@@ -143,7 +146,7 @@
     .picup__top--contents
       .picup__top--contents__no1
         .picup__top--contents__no1--top
-          %img.image{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"}
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", class:"image"
         .picup__top--contents__no1--under
           %p.name ee
           %p.price 1000円
@@ -151,7 +154,7 @@
           %p.good ★０
       .picup__top--contents__no2
         .picup__top--contents__no2--top
-          %img.image{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class:"image"
         .picup__top--contents__no2--under
           %p.name product3
           %p.price 30000円
@@ -159,7 +162,7 @@
           %p.good ★０
       .picup__top--contents__no3
         .picup__top--contents__no3--top
-          %img.image{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class:"image"
         .picup__top--contents__no3--under
           %p.name product2
           %p.price 20000円
@@ -167,7 +170,7 @@
           %p.good ★０
       .picup__top--contents__no4
         .picup__top--contents__no4--top
-          %img.image{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}
+          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", class:"image"
         .picup__top--contents__no4--under
           %p.name product1
           %p.price 10000円
@@ -180,42 +183,50 @@
   .fotterTop__middle
     %p 今すぐ無料ダウンロード！
   .fotterTop__under  
-    %img.link{:src => "http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}
-    %img.link{:src => "http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}
+    = image_tag "http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", class:"link"
+    = image_tag "http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", class:"link"
 
 .fotterUnder
   .fotterUnder__left
     %p.title FURIMAについて 
     %br/
-    %a.conmpany{:href => "#"} 会社概要（運営会社）
+    = link_to "#", class: "conmpany" do
+      会社概要（運営会社）
     %br/
-    %a.policy{:href => "#"} プライバシーポリシー
+    = link_to "#", class: "policy" do
+      プライバシーポリシー
     %br/
     %a.terms{:href => "#"} FURIMA利用規約
     %br/
-    %a.covenant{:href => "#"} ポイントに関する特約
+    = link_to "#", class: "covenant" do
+      ポイントに関する特約
   .fotterUnder__middle
     %p.title FURIMAを見る
     %br/
-    %a.category{:href => "#"} カテゴリー一覧
+    = link_to "#", class: "category" do
+      カテゴリー一覧
     %br/
-    %a.bland{:href => "#"} ブランド一覧
+    = link_to "#", class: "bland" do
+      ブランド一覧
   .fotterUnder__right
     %p.title ヘルプ＆ガイド
     %br/
-    %a.guide{:href => "#"} FURIMAガイド
+    = link_to "#", class: "guide" do
+      FURIMAガイド
     %br/
-    %a.guideline{:href => "#"} FURIMAロゴ利用ガイドライン
+    = link_to "#", class: "guideline" do
+      FURIMAロゴ利用ガイドライン
     %br/
-    %a.notice{:href => "#"} お知らせ
+    = link_to "#", class: "notice" do
+      お知らせ
   .fotterUnder__under
     %p © FURIMA
   .fotterUnder__logo
-    %img.logo{:src => "assets/logo/logo-white.png"}
+    = image_tag "logo/logo-white.png", class:"logo"
 
 .exhibition
   %p 出品する
-  %a{:href => "#"}
-    %img.btn{:src => "assets/icon/icon_camera.png"}
+  = link_to image_tag("icon/icon_camera.png",class: "btn"),'#'
+
 
   
