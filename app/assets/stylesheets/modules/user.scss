@@ -335,6 +335,7 @@
   }
 }
 
+
 .products-detail{
   height: 100%;
   width: 100%;
@@ -374,7 +375,7 @@
         display: block;
         text-align: center;
         font-size: 24px;
-        font-weight: 400;
+        font-weight: 600;
         color: #333333;
         font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
         &:after {
@@ -577,6 +578,7 @@
             width: 350px;
             text-align: center;
             margin: 0 auto;
+            border-radius: 4px;
           }
         }
       }
@@ -584,8 +586,43 @@
   }
 
   .footer{
-    padding: 40px 0 40px;
     width: 100%;
     height: 100%;
+    margin: 0 auto;
+    nav{
+      padding: 40px 0;
+      text-align: center;
+      ul{
+        display: inline-flex;
+        text-align: center;
+        margin-bottom: 20px;
+        list-style: none;
+        li{
+          display: inline-block;
+          justify-content: space-between;
+          text-align: center;
+          list-style: none;
+          font-size: 11px;
+          margin: 0 0 0 16px;
+          a{
+            text-decoration: none;
+            color: #333333;
+            display: flex;
+            justify-content: space-between;
+            &__privacy{
+              text-align: center;
+            }
+            &__rule{
+              text-align: center;
+              margin-left: 5px;
+              margin-right: 5px;
+            }
+            &__notation{
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
   }
 }

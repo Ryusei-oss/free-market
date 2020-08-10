@@ -60,4 +60,16 @@
             支払い方法の入力を完了してください。
           %button.purchase{"data-test" => "transaction-buy-purchase", :disabled => "", :tabindex => "-1", :type => "button"} 購入する
   .footer
-
+    %nav
+      %ul.bottom__principle
+        %li
+          %a.bottom__privacy{href: "#"}
+            プライバシーポリシー
+        %li
+          %a.bottom__rule{href: "#"}
+            フリマ利用規約
+        %li
+          %a.bottom__notation{href:"#"}
+            特定商取引に関する表記
+      %h4.logo__bottom
+        = image_tag src="/assets/logo-white.png", size: "185x49"
