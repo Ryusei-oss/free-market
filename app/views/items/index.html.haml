@@ -1,20 +1,4 @@
-.header
-  .header__main
-    .header__main--left
-      = link_to image_tag("logo/logo.png",class: "logo"),'#'
-    .header__main--right
-      %input.searchBox{:name => "key", :placeholder => "キーワードから探す"}/
-      .header__main--right__box
-        = link_to image_tag("icon/icon-search 1.png",class: "icon"),'#'
-  .header__under
-    = link_to "#", class: "header__under--catBtn" do
-      カテゴリ
-    = link_to "#", class: "header__under--bldBtn" do
-      ブランド
-    = link_to "#", class: "header__under--loginBtn" do
-      ログイン
-    = link_to "#", class: "header__under--newBtn" do
-      新規会員登録
+= render partial: 'items/header'
 
 .main
   .main__headline
@@ -177,56 +161,5 @@
           %p.tax (税込)
           %p.good ★１   
     
-.fotterTop
-  .fotterTop__top
-    %p だれでもかんたん、人生を変えるフリマアプリ
-  .fotterTop__middle
-    %p 今すぐ無料ダウンロード！
-  .fotterTop__under  
-    = image_tag "http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", class:"link"
-    = image_tag "http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", class:"link"
 
-.fotterUnder
-  .fotterUnder__left
-    %p.title FURIMAについて 
-    %br/
-    = link_to "#", class: "conmpany" do
-      会社概要（運営会社）
-    %br/
-    = link_to "#", class: "policy" do
-      プライバシーポリシー
-    %br/
-    %a.terms{:href => "#"} FURIMA利用規約
-    %br/
-    = link_to "#", class: "covenant" do
-      ポイントに関する特約
-  .fotterUnder__middle
-    %p.title FURIMAを見る
-    %br/
-    = link_to "#", class: "category" do
-      カテゴリー一覧
-    %br/
-    = link_to "#", class: "bland" do
-      ブランド一覧
-  .fotterUnder__right
-    %p.title ヘルプ＆ガイド
-    %br/
-    = link_to "#", class: "guide" do
-      FURIMAガイド
-    %br/
-    = link_to "#", class: "guideline" do
-      FURIMAロゴ利用ガイドライン
-    %br/
-    = link_to "#", class: "notice" do
-      お知らせ
-  .fotterUnder__under
-    %p © FURIMA
-  .fotterUnder__logo
-    = image_tag "logo/logo-white.png", class:"logo"
-
-.exhibition
-  %p 出品する
-  = link_to image_tag("icon/icon_camera.png",class: "btn"),'#'
-
-
-  
+= render partial: 'items/fotter'
