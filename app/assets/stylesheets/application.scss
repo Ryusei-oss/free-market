@@ -1,2 +1,7 @@
 @import "reset";
 @import "modules/items";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+body{
+    font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;;
+}
