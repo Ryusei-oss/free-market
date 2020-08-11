@@ -1,17 +1,17 @@
 .mypage
   .mypage__top-bar
-    = render partial: 'items/header'
+    = render partial: 'items/header_mypage'
   .mypage__adress
     = link_to 'FreeMarket', '#' 
     > マイページ
 
   .mypage__middle-bar
     .middle-bar
-      =render partial: 'items/middle_side_bar'
+      =render partial: 'items/middle_side_bar_mypage'
       .resister
         = form_with url: '#', class:"resister__form" do |form|  
           .resister__form--title
-            クレジットカードの登録
+            クレジットカードの登録または変更
           .resister__form--text
             %div カード番号を入力
             = form.text_field :content, style: "height:40px;", placeholder: 'カード番号を入力', size: "60" 
@@ -36,6 +36,6 @@
               登録または変更する
 
   .mypage__bottom-bar
-    =render partial: 'items/fotter'
+    =render partial: 'items/fotter_mypage'
 
  
