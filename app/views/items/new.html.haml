@@ -59,6 +59,24 @@
           %option{value: "11"}チケット
           %option{value: "12"}自動車・オートバイ
           %option{value: "13"}その他
+      .main__detail__size
+      %h3
+        サイズ
+      %span.required-tag
+        必須
+      .main__detail__size-space
+        %select.main__detail__size-box{helper: ""}
+          %option{value: "0"}選択してください
+          %option{value: "1"}XXS以下
+          %option{value: "2"}XS(SS)
+          %option{value: "3"}S
+          %option{value: "4"}M
+          %option{value: "5"}L
+          %option{value: "6"}XL(LL)
+          %option{value: "7"}2XL(3L)
+          %option{value: "8"}3XL(4L)
+          %option{value: "9"}4XL(5L)以上
+          %option{value: "10"}FREESIZE
       .main__detail__brand
       %h3
         ブランド
@@ -200,16 +218,16 @@
   .hooter__content
     %ul.hooter__content__list
       %li
-        %a.hooter__content__list__privacy{href: "#"}
+        = link_to "#", class: "hooter__content__list__privacy" do
           プライバシーポリシー
       %li
-        %a.hooter__content__list__terms{href: "#"}
+        = link_to "#", class: "hooter__content__list__terms" do
           利用規約
       %li
-        %a.hooter__content__list__law{href: "#"}
+        = link_to "#", class: "hooter__content__list__law" do
           特定商品取引に関する表記
   .hooter__logo
-    %a.hooter__logo__white{href: "#"}
+    = link_to "#", class: "hooter__logo__white" do
       = image_tag src="/assets/logo-white.png", size: "185x49", class: "hooter__logo__white__image"
     %p.hooter__logo__copymark
       © Frema,Inc.
