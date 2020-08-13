@@ -90,7 +90,7 @@
  }
 
  .main{
-     background-image: url(/assets/pict/bg-mainVisual-pict_pc.jpg);
+     background-image: image_url('pict/bg-mainVisual-pict_pc.jpg');
      background-size: cover;
      height: 560px;
      position: relative;
@@ -342,7 +342,7 @@
  }
 
  .middle{
-     background-image: url(/assets/pict/bg-topMiddleDl-pict.jpg);
+     background-image: image_url('pict/bg-topMiddleDl-pict.jpg');
      background-size: cover;
      height: 400px;
      padding-left: 185px;
@@ -697,7 +697,7 @@
 
 .fotterTop{
     text-align: center;
-    background-image: url(/assets/pict/bg-appBanner-pict.jpg);
+    background-image: image_url('pict/bg-appBanner-pict.jpg');
     background-size: cover;
     background-position: bottom;
     height: 360px;
