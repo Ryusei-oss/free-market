@@ -1,0 +1,127 @@
+= render partial: 'items/header'
+.attribute
+  %ul.attribute__ul
+    %li
+      = link_to "#" do
+        FURIMA
+    %li
+      %i.fa.fa-angle-right
+    %li
+      = link_to "#" do
+        ベビー・キッズ
+    %li
+      %i.fa.fa-angle-right
+    %li
+      = link_to "#" do
+        ベビー服(男の子用)  ~95cm
+    %li
+      %i.fa.fa-angle-right
+    %li
+      = link_to "#" do
+        アウター
+    %li
+      %i.fa.fa-angle-right
+    %li
+      %a ee
+
+.product
+  .product__main
+    .product__main--name
+      %p ee
+    .product__main--image
+      = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG", class:"image"
+    .product__main--imagesub
+      .product__main--imagesub__2
+        = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/17/IMG_9069.JPG", class:"subimage"
+      .product__main--imagesub__3
+        = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG", class:"subimage"
+    .product__main--price
+      %p.total 30,000円
+      %p.tax (税込) 送料混み
+    .product__main--explanation
+      %p ここに説明が入ります。
+    .product__main--catalog
+      %table
+        %tbody
+          %tr
+            %th.left 出品者
+            %td.right ss
+          %tr
+            %th.left カテゴリー
+            %td.right
+              = link_to "#" , class: "link" do
+                ベビー・キッズ
+              %br/
+              = link_to "#" , class: "link" do
+                ベビー服(男の子用)  ~95cm
+              %br/
+              = link_to "#" , class: "link" do
+                アウター
+          %tr
+            %th.left ブランド
+            %td.right
+          %tr
+            %th.left 商品のサイズ
+            %td.right
+          %tr
+            %th.left 商品の状態
+            %td.right 新品/未使用
+          %tr
+            %th.left 配送料の負担
+            %td.right 送料込み（出品者負担）
+          %tr
+            %th.left 発送元の地域
+            %td.right
+              = link_to "#" , class: "link" do
+                北海道
+          %tr
+            %th.left 発送日の目安
+            %td.right 1-2日で発送
+    .product__main--under
+      .product__main--under__left
+        = link_to "#" , class: "left" do
+          %i.fa.fa-star お気に入り 0
+      .product__main--under__right
+        = link_to "#" , class: "right" do
+          %i.fa.fa-flag 不適切な商品の通報
+    
+  .product__comment
+    .product__comment--form
+      %textarea.text
+    
+    .product__comment--explanation
+      %p.top 相手のことを考え丁寧なコメントを心がけましょう。
+      %p.buttom 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    
+    .product__comment--btn
+      %button.btn
+        %i.fa.fa-comment コメントする
+
+  .product__number
+    .product__number--left
+      = link_to "#" , class: "left" do
+        %p.left < 前の商品
+    .product__number--right
+      = link_to "#" , class: "right" do
+        %p.right 後ろの商品 >
+
+  .product__more
+    = link_to "#" , class: "more" do
+      %p ベビー・キッズをもっと見る
+
+  .product__example
+    .picup__top--contents__no2
+      .picup__top--contents__no2--top
+        = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class:"image"
+        .picup__top--contents__no2--under
+          %p.name product3
+          %p.price 30000円
+          %p.tax (税込)
+          %p.good ★０
+    
+    
+
+
+
+
+= render partial: 'items/fotter'
