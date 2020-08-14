@@ -1,0 +1,17 @@
+.header
+  .header__main
+    .header__main--left
+      = link_to image_tag("logo/logo.png",class: "logo"),'#'
+    .header__main--right
+      %input.searchBox{:name => "key", :placeholder => "キーワードから探す"}/
+      .header__main--right__box
+        = link_to image_tag("icon/icon-search 1.png",class: "icon"),'#'
+  .header__under
+    = link_to "#", class: "header__under--catBtn" do
+      カテゴリ
+    = link_to "#", class: "header__under--bldBtn" do
+      ブランド
+    = link_to "#", class: "header__under--loginBtn" do
+      ログイン
+    = link_to "#", class: "header__under--newBtn" do
+      新規会員登録
