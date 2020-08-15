@@ -1,0 +1,36 @@
+.middle-bar__tabs
+  .tabs__mypage
+    .middle-bar-tag
+      = link_to root_path, class: "default-font" do
+        マイページ
+      = icon("fas", "fa fa-angle-right") 
+    .middle-bar-tag
+      = link_to '#', class: "default-font" do
+        お知らせ
+      = icon("fas", "fa fa-angle-right") 
+    .middle-bar-tag
+      = link_to '#', class: "default-font" do
+        やることリスト
+      = icon("fas", "fa fa-angle-right")  
+  .tabs__melpay
+    .title
+      フリマペイ
+    .middle-bar-tag
+      = link_to '#', class: "default-font" do
+        売り上げ
+      = icon("fas", "fa fa-angle-right") 
+    .middle-bar-tag
+      = link_to '#', class: "default-font" do
+        振り込み申請
+      = icon("fas", "fa fa-angle-right") 
+  .tabs__config
+    .title
+      設定
+    .middle-bar-tag
+      = link_to logout_path, class: "default-font" do
+        ログアウト
+      = icon("fas", "fa fa-angle-right") 
+    .middle-bar-tag
+      = link_to register_path, class: "default-font" do
+        クレジットカードの登録/変更
+      = icon("fas", "fa fa-angle-right") 

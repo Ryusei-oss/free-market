@@ -1,0 +1,46 @@
+.bottom-bar
+  .bottom-bar__top
+    = image_tag src="material/pict/bg-appBanner-pict.jpg", style:"height: 50vh; width:100vw; object-fit: cover;"
+    .frase 
+      だれでもかんたん、人生を変えるフリマアプリ
+    .frase#big-font
+      今すぐ無料ダウンロード！
+    .batch
+      %div
+        = image_tag src="material/logo/app-store.svg"
+      %div
+        = image_tag src="material/logo/google-play.svg", style:"margin-left: 1vw;"
+
+  .bottom-bar__contents
+    .bottom-bar__contents--content
+      %h1#bold 
+        FURIMAについて
+      .text
+        会社概要（運営会社）
+      .text
+        プライバシーポリシー
+      .text
+        FURIMA利用規約
+      .text
+        ポイントに関する特約
+    .bottom-bar__contents--content
+      %h1#bold 
+        FURIMAを見る
+      .text
+        カテゴリー一覧
+      .text
+        ブランド一覧
+    .bottom-bar__contents--content
+      %h1#bold 
+        ヘルプ＆ガイド
+      .text
+        FURIMAガイド
+      .text
+        FURIMAロゴ利用ガイドライン
+      .text
+        お知らせ
+  .bottom-bar__logo-box
+    .bottom-bar__logo-box--logo
+      = image_tag src="material/logo/logo-white.png", style:"width:15%;", class:"logo"
+    .bottom-bar__logo-box--text
+      @ FURIMA
