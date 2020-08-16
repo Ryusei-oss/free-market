@@ -1,49 +1,61 @@
-.account-page__account-header
+.login-header
   %h1
-    %a.furima-logo(href="http//furima.tokyo/")
+    %a.login-header__furima-logo__url(href="http//furima.tokyo/")
       = image_tag src="/assets/logo.png", size: "185x49"
-.account-page__main.clearfix
-  .account-page__main.account-page__header
-    %h5 ログイン画面
-  .account-page__main.user-form
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .login-header__process
+      %ul.login-header__process__bar
+        %li ログイン情報
+
+.login-main
+  .login-main__text
+    .login-main__text__header ログイン情報入力画面
+    .login-main__user-form
       .login-no-account
         %p アカウントをお持ちではない方はこちらへ
-        %a.login-no-account__sign__in{href:"#"}
+        %button.login-no-account__sign__in{:content => "text", :placeholder => "新規会員登録"}
           新規会員登録
-      .field-account
-          .google
-            = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class: "google__account"
-            = icon('fab','google')
-          .facebook
-            = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class: "facebook__account"
-            = icon('fab','facebook-square')
-      .field
-        .field-label
-          = f.label :メール
+      .nickname
+        .nickname__label
+          ニックネーム
           %span 必須
-        .field-input
-          = f.text_field :email, placeholder: 'PC/携帯どちらでも可'
-      .field
-          .field-label
-            = f.label :パスワード
-            %span 必須
-            %i (英数字8文字以上)
-          .field-input
-            = f.password_field :password, autocomplete: "off"
-        .actions
-          = f.submit "ログイン", class: 'btn'
-.account-page__account-bottom
-    %nav
-      %ul.bottom__principle
-      %li 
-        %a.bottom__privacy{href: "#"}
+          %input.nickname1{:nickname => "key", :placeholder => "例)フリマjapan"}/
+      .email
+        .email__label
+          メール
+          %span 必須
+          %input.email1{:email => "text", :placeholder => "PC/携帯どちらでも可"}/
+      .password
+        .password__label
+          パスワード
+          %span 必須
+          %i (英数字8文字以上)
+          %input.password__1{:password => "text", :autocomplete => "off"}/
+      .password-check
+        .password-check__label
+          パスワード確認
+          %span 必須
+          %input.password__check__1{:password => "text", :autocomplete => "off"}/
+      .login-button
+        %button.login-button__sign__in{:content => "text", :placeholder => "ログイン"}
+          ログイン
+        .forget-password
+          %p
+            = link_to "#", class: "forget-password" do
+              パスワードお忘れの方
+.login-footer
+  .login-footer__content
+    %ul.login-footer__content__list
+      %li
+        = link_to "#", class: "hooter__content__list__privacy" do
           プライバシーポリシー
       %li
-        %a.bottom__rule{href: "#"}
-          フリマ利用規約
+        = link_to "#", class: "hooter__content__list__terms" do
+          利用規約
       %li
-        %a.bottom__notation{href:"#"}
-          特定商取引に関する表記
-    %h4.logo__bottom
-      = image_tag src="/assets/logo-white.png", size: "185x49"
+        = link_to "#", class: "hooter__content__list__law" do
+          特定商品取引に関する表記
+  .login-footer__logo
+    = link_to "#", class: "hooter__logo__white" do
+      = image_tag src="/assets/logo-white.png", size: "185x49", class: "hooter__logo__white__image"
+    %p.login-footer__logo__copymark
+      © Frema,Inc.
