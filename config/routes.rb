@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  root 'items#sessions'
+  resources :items
+  get '/registrations', to: 'items#registrations'
+  get '/sessions', to: 'items#sessions'
+  root 'items#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
