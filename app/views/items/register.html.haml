@@ -1,0 +1,41 @@
+.mypage
+  .mypage__top-bar
+    = render partial: 'items/header_mypage'
+  .mypage__adress
+    = link_to 'FreeMarket', root_path
+    > マイページ
+
+  .mypage__middle-bar
+    .middle-bar
+      =render partial: 'items/middle_side_bar_mypage'
+      .resister
+        = form_with url: '#', class:"resister__form" do |form|  
+          .resister__form--title
+            クレジットカードの登録または変更
+          .resister__form--text
+            %div カード番号を入力
+            = form.text_field :content, style: "height:40px;", placeholder: 'カード番号を入力', size: "60" 
+          .resister__form--text
+            %div 有効期限を入力
+            = form.text_field :year, style: "height:40px;", placeholder: '年', size: "15" 
+            = form.text_field :month, style: "height:40px;", placeholder: '月', size: "15" 
+          .resister__form--text
+            %div 名義人を入力
+            = form.text_field :content, style: "height:40px;", placeholder: '苗字', size: "25" 
+            = form.text_field :content, style: "height:40px;", placeholder: '名前', size: "25" 
+          .resister__form--text
+            %div 生年月日を選択
+            = form.text_field :year, style: "height:40px;", placeholder: '年', size: "15" 
+            = form.text_field :month, style: "height:40px;", placeholder: '月', size: "15" 
+            = form.text_field :day, style: "height:40px;", placeholder: '日', size: "15" 
+          .resister__form--text
+            %div セキュリティコードを入力
+            = form.text_field :content, style: "height:40px;", placeholder: 'セキュリティーコード', size: "25"
+          = link_to '#', class:"default-font" do
+            .resister__form--resister 
+              登録または変更する
+
+  .mypage__bottom-bar
+    =render partial: 'items/fotter_mypage'
+
+ 
