@@ -72,3 +72,5 @@ group :production do
 end
 gem 'font-awesome-sass'
 gem 'haml-rails'
+gem 'ancestry'
+gem 'devise'
