@@ -4,3 +4,4 @@ class AddAncestryToCategory < ActiveRecord::Migration[5.2]
     add_index :categories, :ancestry
   end
 end
+

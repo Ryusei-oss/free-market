@@ -1,7 +1,7 @@
 .account-page__header
   %h1
-    %a.account-page__header__furima-logo__url(href="http//furima.tokyo/")
-      = image_tag src="/assets/logo.png", size: "185x49"
+    = link_to "#", class: "account-page__header__furima-logo__url" do
+      = image_tag src="logo/logo.png", size: "185x49", class: "account-page__header__furima-logo__url__image"
     .account-page__header__process
       %ul.account-page__header__process__bar
         %li 会員情報
