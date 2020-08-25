@@ -5,3 +5,4 @@ class AddReferencesToProduct < ActiveRecord::Migration[5.2]
     add_reference :products, :brand, foreign_key: true
   end
 end
+ 
