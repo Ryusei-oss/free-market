@@ -36,14 +36,14 @@
         .method-of-payment
           .method-of-payment__title
             %h3.method-of-payment__paragraph 支払い方法
-            %a.register(href="http//furima.tokyo/")
+            = link_to "http//furima.tokyo/" , class: "register" do
               %svg{"aria-hidden" => "true", :fill => "#0095ee", "fill-rule" => "evenodd", :height => "16", :viewbox => "0 0 24 24", :width => "16"}
               %span.entry 登録してください
       .address
         .shopping-address
           .shopping-address__title
             %h3.shopping-address__paragraph 配送先
-            %a.shopping-address__change(href="http//furima.tokyo/")
+            = link_to "http//furima.tokyo/" , class: "shopping-address__change" do
               変更する
           .shopping-address__text
             %p 〒000-0000
