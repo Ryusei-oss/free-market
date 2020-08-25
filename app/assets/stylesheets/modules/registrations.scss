@@ -1,0 +1,378 @@
+* {
+  box-sizing: border-box;
+}
+.account-page__header{
+  height: 120px;
+  text-align: center;
+  background-color: #f5f5f5;
+  h1{
+    margin: 40px 0 0;
+    display: inline-block;
+    a{
+      width: 180px;
+      height: 50px;
+      line-height: 50px;
+      display: inline-block;
+      margin: 0 8px 0 0;
+      text-decoration: none;
+    }
+  }
+  &__process{
+    padding: 10px;
+    display: inline-block;
+    vertical-align: top;
+    border: 0;
+    vertical-align: top;
+    ul{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li{
+        font-size: 20px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.account-page__main{
+  display: block;
+  background-color: #f5f5f5;
+  &__text{
+    width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    &__header{
+      background-color: #ffffff;
+      font-size: 20px;
+      padding: 30px;
+      text-align: center;
+    }
+  }
+  &__user-form{
+    border-top: 1px solid #f5f5f5;
+    margin: 0 auto;
+    width: 300px;
+    padding: 30px 30px 60px;
+    .nickname{
+      margin: 0 auto;
+      margin-bottom: 10px;
+      &__label{
+        display: inline-block;
+        font-weight: 600;
+        span{
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          background-color: red;
+        }
+      }
+      input{
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 0 10px 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+    }
+    .email{
+      margin: 0 auto;
+      margin-bottom: 10px;
+      &__label{
+        display: inline-block;
+        font-weight: 600;
+        span{
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          background-color: red;
+        }
+      }
+      input{
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 0 10px 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+    }
+    .password{
+      margin: 0 auto;
+      margin-bottom: 10px;
+      &__label{
+        display: inline-block;
+        font-weight: 600;
+        span{
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          background-color: red;
+        }
+        i{
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+      input{
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 0 10px 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+    }
+    .password-check{
+      margin: 0 auto;
+      margin-bottom: 10px;
+      &__label{
+        display: inline-block;
+        font-weight: 600;
+        span{
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          background-color: red;
+        }
+      }
+      input{
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 0 10px 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+      }
+    }
+    .identification{
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+    .name{
+      margin: 0 auto;
+      margin-bottom: 10px;
+      display: inline-block;
+      &__label{
+        font-weight: 600;
+        span{
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          background-color: red;
+        }
+      }
+      input{
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 0 10px 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        width: calc(50% - 6px);
+      }
+    }
+    .kana{
+      margin: 0 auto;
+      margin-bottom: 10px;
+      display: inline-block;
+      &__label{
+        width: 100%;
+        font-weight: 600;
+        span{
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          background-color: red;
+        }
+      }
+      input{
+        width: 100%;
+        margin: 8px 0 0;
+        height: 48px;
+        padding: 10px 0 10px 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        width: calc(50% - 6px);
+      }
+    }
+    .birthday{
+      margin: 0 auto;
+      margin-bottom: 10px;
+      &__label{
+        display: inline-block;
+        font-weight: 600;
+        span{
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
+          background-color: red;
+        }
+      }
+      .choose{
+        position: relative;
+        margin: 8px 0 0;
+        display: inline-flex;
+        width: 100%;
+        height: 20px;
+        &__year{
+          text-align: center;
+          width: 80px;
+          i{
+            select{
+
+            }
+          }
+        }
+        &__month{
+          text-align: center;
+          width: 70px;
+          i{
+            select{
+              
+            }
+          }
+        }
+        &__day{
+          text-align: center;
+          width: 80px;
+          i{
+            select{
+              
+            }
+          }
+        }
+      }
+    }
+    p{
+      height: 100%;
+      margin: 8px 0 0;
+      color: #888888;
+      font-size: 14px;
+      line-height: 1.5;
+      font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    }
+    .submit1{
+      margin: 24px 0 0;
+      margin-top: 30px;
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+  }
+  .personal-information{
+    margin: 40px 0 0;
+    text-align: right;
+    p{
+      margin: 0;
+      padding: 0;
+      a{
+        color: #0099e8;
+        text-decoration: none;
+      }
+    }
+  }
+  .form-group{
+    background-color: #f5f5f5;
+    margin-top: 30px;
+    border-style: solid #ffffff;
+    
+    a{
+      text-decoration: none;
+      color: #0099e8;
+    }
+  }
+}
+
+.account-page__footer {
+  padding: 40px 0px 41px;
+  margin-top: auto;
+  text-align: center;
+  background-color: #f5f5f5;
+  &__content {
+    display: inline-block;
+    &__list {
+      display: flex;
+      text-align: center;
+      margin: -16px 0px 40px -16px;
+      list-style: none;
+      font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      justify-content: space-between;
+      &__privacy {
+        font-size: 12px;
+        text-decoration: none;
+        color: #222222;
+        margin: 16px 0px 0px 16px;
+      }
+      &__terms {
+        font-size: 12px;
+        text-decoration: none;
+        color: #222222;
+        margin: 16px 0px 0px 16px;
+      }
+      &__law {
+        font-size: 12px;
+        text-decoration: none;
+        color: #222222;
+        margin: 16px 0px 0px 16px;
+      } 
+    }
+  }
+  &__logo {
+    &__white {
+      text-align: center;
+      &__image {
+        color: #222222;
+      }
+    }
+    &__copymark {
+      font-size: 12px;
+      font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    }
+  }
+}
