@@ -95,7 +95,11 @@
     
     .product__comment--btn
       %button.btn
-        %i.fa.fa-comment コメントする
+        = link_to purchase_path do
+          %i.fa.fa-comment コメントする
+      %button.btn
+        = link_to purchase_path do
+          %i.fa.fa-comment 購入する
 
   .product__number
     .product__number--left

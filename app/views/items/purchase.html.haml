@@ -1,0 +1,77 @@
+.products-detail
+  .products-header
+    .header-logo
+      = image_tag src="/assets/logo.png", size: "185x49"
+  .products-main
+    .user-form
+      .user-form__header
+        購入内容の確認
+      .picture
+        .image
+          = image_tag src='https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/423523/item/goods_00_423523.jpg?width=1194', size:"30x30"
+        .products
+          .detail
+            ユニクロ エアリズムVネックT（半袖）
+          .price
+            %span.commission
+              送料込み(税込)
+            %span.fee
+              ２千円
+      .pay-point
+        .pay
+          %span.amount
+            支払金額
+          %span.money
+            ２万円
+        .point
+          .point-title
+            %span.style-check__box{"data-test": "point-checkbox"}
+              %span.style__input
+                %input{disabled: "disabled", name: "furima-points", type: "checkbox", value: ""}
+                %svg{"aria-hidden": "true", fill: "#ffffff", "fill-rule": "evenodd", height: "16", viewbox: "0 0 24 24", width: "16"}
+            = image_tag src="/assets/icon_brand.png", size: "14x14"
+            %p.point-use ポイントの使用
+          %p.have-ponint 所持ポイント :P0
+      .method
+        .method-of-payment
+          .method-of-payment__title
+            %h3.method-of-payment__paragraph 支払い方法
+            = link_to "http//furima.tokyo/" , class: "register" do
+              %svg{"aria-hidden": "true", fill: "#0095ee", "fill-rule": "evenodd", height: "16", viewbox: "0 0 24 24", width: "16"}
+              %span.entry 登録してください
+      .address
+        .shopping-address
+          .shopping-address__title
+            %h3.shopping-address__paragraph 配送先
+            = link_to "http//furima.tokyo/" , class: "shopping-address__change" do
+              変更する
+          .shopping-address__text
+            %p 〒000-0000
+            %p 東京都港区芝公園
+            %p 山本太郎
+      .precautions
+        .detail
+          %p.detail__title
+            郵便局/コンビニ受取をご希望の方は、購入後に
+            %b.emphasis 取引画面
+            から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
+          %p.payment-completion
+            支払い方法の入力を完了してください。
+          %button.purchase{"data-test": "transaction-buy-purchase", disabled: "", tabindex: "-1", type: "button"} 購入する
+  .products-footer
+    .products-footer__content
+      %ul.products-footer__content__list
+        %li
+          = link_to "#", class: "products-footer__content__list__privacy" do
+            プライバシーポリシー
+        %li
+          = link_to "#", class: "products-footer__content__list__terms" do
+            利用規約
+        %li
+          = link_to "#", class: "products-footer__content__list__law" do
+            特定商品取引に関する表記
+    .products-footer__logo
+      = link_to "#", class: "products-footer__logo__white" do
+        = image_tag src="logo/logo-white.png", size: "185x49", class: "hooter__logo__white__image"
+      %p.products-footer__logo__copymark
+        © Frema,Inc.
