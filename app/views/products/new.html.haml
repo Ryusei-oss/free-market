@@ -1,0 +1,237 @@
+= form_for @product do |f|
+  .header
+    .header__logo
+      %span.logo
+        = image_tag src="logo/logo.png", size: "185x49"
+
+  .main
+    .main__content
+      .main__image
+        %h3
+          出品画像
+        %span.required-tag
+          必須
+        %p.main__image__explain
+          最大3枚までアップロードできます
+        .main__image__upload
+          %label
+            %input.main__image__upload-box{type: "file"}
+            .main__image__upload-icon
+              = image_tag src="icon/icon_camera.png", size: "24x24", class: "camera"
+            %p.main__image__upload-explain
+              ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+      .main__name
+        %h3
+          商品名
+        %span.required-tag
+          必須
+        .main__name__product
+          = f.text_field :name, class: "main__name__product-box", placeholder: "40文字まで"
+        .main__description
+        %h3
+          商品の説明
+        %span.required-tag
+          必須
+        .main__description-space
+          = f.text_field :explanation, class: "main__description-box", placeholder: "商品の説明（必須 1,000文字以内）"
+       
+        .main__description-counter
+          %span
+            0/1000
+      .main__detail
+        %p.main__detail__tag 
+          商品の詳細
+        .main__detail__category
+        %h3
+          カテゴリー
+        %span.required-tag
+          必須
+        .main__detail__category-space
+          %select.main__detail__category-box{helper: ""}
+            %option{value: "0"}選択してください
+            %option{value: "1"}レディース
+            %option{value: "2"}メンズ
+            %option{value: "3"}ベビー・キッズ
+            %option{value: "4"}インテリア・住まい・小物
+            %option{value: "5"}本・音楽・ゲーム
+            %option{value: "6"}おもちゃ・ホビー・グッズ
+            %option{value: "7"}コスメ・香水・美容
+            %option{value: "8"}家電・スマホ・カメラ
+            %option{value: "9"}スポーツ・レジャー
+            %option{value: "10"}ハンドメイド
+            %option{value: "11"}チケット
+            %option{value: "12"}自動車・オートバイ
+            %option{value: "13"}その他
+        .main__detail__size
+        %h3
+          サイズ
+        %span.required-tag
+          必須
+        .main__detail__size-space
+          %select.main__detail__size-box{helper: ""}
+            = f.select :size, {'男性': 1, '女性': 2}, include_blank: "選択して下さい",class: "main__detail__size-box" 
+            -# %option{value: "0"}選択してください
+            -# %option{value: "1"}XXS以下
+            -# %option{value: "2"}XS(SS)
+            -# %option{value: "3"}S
+            -# %option{value: "4"}M
+            -# %option{value: "5"}L
+            -# %option{value: "6"}XL(LL)
+            -# %option{value: "7"}2XL(3L)
+            -# %option{value: "8"}3XL(4L)
+            -# %option{value: "9"}4XL(5L)以上
+            -# %option{value: "10"}FREESIZE
+        .main__detail__brand
+        %h3
+          ブランド
+        %span.any-tag
+          任意
+        .main__detail__brand-space
+        %input.main__detail__brand-box{placeholder: "例）シャネル"}
+        .main__detail__quality
+        %h3
+          商品の状態
+        %span.required-tag
+          必須
+        .main__detail__quality-space
+          %select.main__detail__quality-box{helper: ""}
+            %option{value: "0"}選択してください
+            %option{value: "1"}新品、未使用
+            %option{value: "2"}未使用に近い
+            %option{value: "3"}目立った傷や汚れなし
+            %option{value: "4"}やや傷や汚れあり
+            %option{value: "5"}傷や汚れあり
+            %option{value: "6"}全体的に状態が悪い
+      .main__delivery
+        %p.main__delivery__tag
+          配送について
+        .main__delivery__charge
+        %h3
+          配送料の負担
+        %span.required-tag
+          必須
+        .main__delivery__charge-space
+          %select.main__delivery__charge-box{helper: ""}
+            %option{value: "0"}選択してください
+            %option{value: "1"}送料込み(出品者負担)
+            %option{value: "2"}着払い(購入者負担)
+        .main__delivery__area
+          %h3
+            配送元の地域
+          %span.required-tag
+            必須
+          .main__delivery__area-space
+            %select.main__delivery__area-box{helper: ""}
+              %option{value: "0"}選択してください
+              %option{value: "1"}北海道
+              %option{value: "2"}青森県
+              %option{value: "3"}岩手県
+              %option{value: "4"}宮城県
+              %option{value: "5"}秋田県
+              %option{value: "6"}山形県
+              %option{value: "7"}福島県
+              %option{value: "8"}茨城県
+              %option{value: "9"}栃木県
+              %option{value: "10"}群馬県
+              %option{value: "11"}埼玉県
+              %option{value: "12"}千葉県
+              %option{value: "13"}東京都
+              %option{value: "14"}神奈川県
+              %option{value: "15"}新潟県
+              %option{value: "16"}富山県
+              %option{value: "17"}石川県
+              %option{value: "18"}福井県
+              %option{value: "19"}山梨県
+              %option{value: "20"}長野県
+              %option{value: "21"}岐阜県
+              %option{value: "22"}静岡県
+              %option{value: "23"}愛知県
+              %option{value: "24"}三重県
+              %option{value: "25"}滋賀県
+              %option{value: "26"}京都府
+              %option{value: "27"}大阪府
+              %option{value: "28"}兵庫県
+              %option{value: "29"}奈良県
+              %option{value: "30"}和歌山県
+              %option{value: "31"}鳥取県
+              %option{value: "32"}島根県
+              %option{value: "33"}岡山県
+              %option{value: "34"}広島県
+              %option{value: "35"}山口県
+              %option{value: "36"}徳島県
+              %option{value: "37"}香川県
+              %option{value: "38"}愛媛県
+              %option{value: "39"}高知県
+              %option{value: "40"}福岡県
+              %option{value: "41"}佐賀県
+              %option{value: "42"}長崎県
+              %option{value: "43"}熊本県
+              %option{value: "44"}大分県
+              %option{value: "45"}宮崎県
+              %option{value: "46"}鹿児島県
+              %option{value: "47"}沖縄県
+              %option{value: "99"}未定
+        .main__delivery__date
+          %h3
+            発送までの日数
+          %span.required-tag
+            必須
+          .main__delivery__date-space
+            %select.main__delivery__date-box{helper: ""}
+              %option{value: "0"}選択してください
+              %option{value: "1"}1〜2日で発送
+              %option{value: "2"}2〜3日で発送
+              %option{value: "3"}4〜5日で発送
+      .main__price
+        %p.main__price__tag
+          価格（¥300〜9,999,999）
+        .main__price__selling
+          .main__price__selling__price
+            .main__price__selling__price__right
+              %h3
+                販売価格
+              %span.required-tag
+                必須
+            %span.en-tag
+              ¥
+            .main__price__selling__price__box
+              %input.main__price__selling__price__box-input{type: "number", :placeholder => "0"}
+          .main__price__selling__fee
+            .main__price__selling__fee__right
+              .main__price__selling__fee__right-label
+                販売手数料（10%）
+            %span.fee_value
+              ー
+          .main__price__selling__profit
+            .main__price__selling__profit__right
+              .main__price__selling__profit__right-label
+                販売利益
+            %span.fee_value
+              ー
+      .main__btn
+        = form_for @product do |f|
+          = f.submit "出品する", class: "main__btn__exhibition"
+        %button.main__btn__draft{type: "submit"}
+          下書きに保存
+        %a.main__btn__link{href: "#"}
+          もどる
+      .main__note
+        %p.main__note__description
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+  .hooter
+    .hooter__content
+      %ul.hooter__content__list
+        %li
+          = link_to "#", class: "hooter__content__list__privacy" do
+            プライバシーポリシー
+        %li
+          = link_to "#", class: "hooter__content__list__terms" do
+            利用規約
+        %li
+          = link_to "#", class: "hooter__content__list__law" do
+            特定商品取引に関する表記
+    .hooter__logo
+      = link_to "#", class: "hooter__logo__white" do
+        = image_tag src="logo/logo-white.png", size: "185x49", class: "hooter__logo__white__image"
+      %p.hooter__logo__copymark
+        © Frema,Inc.
