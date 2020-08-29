@@ -82,7 +82,7 @@
       font-size: 16px;
       font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
     }
-    &-counter {
+    &__counter {
       margin-top: 16px;
       text-align: right;
       font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
@@ -291,6 +291,11 @@
       font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
     }
     .fee_value {
+      color: #333333;
+      font-size: 14px;
+      font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    }
+    .profit_value {
       color: #333333;
       font-size: 14px;
       font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
