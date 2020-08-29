@@ -8,11 +8,14 @@ class Product < ApplicationRecord
   validates :price, numericality: [greater_than: 300, less_than: 10000000]
 
   belongs_to :category
+  has_many :images
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :area
   belongs_to_active_hash :shipping_charge
   belongs_to_active_hash :size
   belongs_to_active_hash :quality
+
+  accepts_nested_attributes_for :images, allow_destroy: true
 
 end

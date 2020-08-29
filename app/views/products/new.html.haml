@@ -14,13 +14,27 @@
       .main__image__upload
         %label
           %input.main__image__upload-box{type: "file"}
-          -# 重めの実装なので中断
-          -# = f.fields_for :images do |image|
-          -#   = image.file_field
+
           .main__image__upload-icon
             = image_tag src="icon/icon_camera.png", size: "24x24", class: "camera"
           %p.main__image__upload-explain
-            ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+            ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード   
+        
+      #image-box
+        = f.fields_for :images do |i|
+          .js-file_group{"data-index" => "#{i.index}"}
+          = i.file_field :image, class: 'js-file'
+          %br/
+          %span.js-remove 削除
+
+
+        -# %label
+        -#   %input.main__image__upload-box{type: "file"}
+
+        -#   .main__image__upload-icon
+        -#     = image_tag src="icon/icon_camera.png", size: "24x24", class: "camera"
+        -#   %p.main__image__upload-explain
+        -#     ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
     .main__name
       %h3
         商品名

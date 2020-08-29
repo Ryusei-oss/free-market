@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :products, only: [:new, :create]
+  resources :products, except: :show
   resources :items
   root 'items#index'
   get '/registrations', to: 'items#registrations'
