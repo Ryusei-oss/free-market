@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     end
   
     def create
-      @product=Product.create(product_params)
+      @product = Product.create(product_params)
       respond_to do |format|
         format.html { redirect_to :root }
         format.json { render json: @product}
