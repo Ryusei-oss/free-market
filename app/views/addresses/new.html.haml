@@ -1,0 +1,34 @@
+.mypage
+  .mypage__top-bar
+    = render partial: 'users/header_mypage'
+  .mypage__adress
+    = link_to 'FreeMarket', root_path 
+    > マイページ >ログアウト
+
+  .mypage__middle-bar
+    .middle-bar
+      =render partial: 'users/middle_side_bar_mypage'
+      .resister
+        .resister__form
+          = form_for @address, url: user_addresses_path(current_user) do |f|  
+            .resister__form--title
+              送付先情報の登録
+            .resister__form--text
+              %div 郵便番号を入力
+              = f.text_field :postal_code, style: "height:40px;", placeholder: '123-4567', size: "60" 
+            .resister__form--text
+              %div 都道府県を入力
+              = f.text_field :area, style: "height:40px;", placeholder: '大阪府', size: "60" 
+            .resister__form--text
+              %div 市町村を入力
+              = f.text_field :city, style: "height:40px;", placeholder: '大阪市中央区', size: "60"
+            .resister__form--text
+              %div 番地を入力
+              = f.text_field :house_number, style: "height:40px;", placeholder: '１丁目１番地', size: "60" 
+            .resister__form--text
+              %div 建物を入力（任意）
+              = f.text_field :building, style: "height:40px;", placeholder: 'レジデンス大阪１０１号室', size: "60" 
+            = f.submit "登録する", class:"resister__form--resister"
+
+  .mypage__bottom-bar
+    =render partial: 'users/fotter_mypage'

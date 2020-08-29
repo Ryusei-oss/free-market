@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :items
-  resources :users, only: :show
+  resources :users, only: :show do
+    resources :addresses
+  end
   root to: 'items#index'
   get '/registrations', to: 'items#registrations'
   get '/sessions', to: 'items#sessions'

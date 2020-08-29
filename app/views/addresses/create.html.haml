@@ -1,0 +1,17 @@
+.mypage
+  .mypage__top-bar
+    = render partial: 'users/header_mypage'
+  .mypage__adress
+    = link_to 'FreeMarket', root_path 
+    > マイページ >ログアウト
+
+  .mypage__middle-bar
+    .middle-bar
+      =render partial: 'users/middle_side_bar_mypage'
+      .resister
+        .resister__form
+          .resister__form--text
+          .resister__form--resister
+            = link_to '登録完了しました', user_path(current_user), class:"default-font"
+  .mypage__bottom-bar
+    =render partial: 'users/fotter_mypage'

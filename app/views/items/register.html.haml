@@ -1,13 +1,13 @@
 .mypage
   .mypage__top-bar
-    = render partial: 'items/header_mypage'
+    = render partial: 'users/header_mypage'
   .mypage__adress
     = link_to 'FreeMarket', root_path
     > マイページ
 
   .mypage__middle-bar
     .middle-bar
-      =render partial: 'items/middle_side_bar_mypage'
+      =render partial: 'users/middle_side_bar_mypage'
       .resister
         = form_with url: '#', class:"resister__form" do |form|  
           .resister__form--title
@@ -36,6 +36,6 @@
               登録または変更する
 
   .mypage__bottom-bar
-    =render partial: 'items/fotter_mypage'
+    =render partial: 'users/fotter_mypage'
 
  

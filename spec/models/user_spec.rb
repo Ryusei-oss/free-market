@@ -3,11 +3,37 @@ require 'rails_helper'
 describe User do
   describe '#create' do
 
-    it "last_name,first_name,last_name_kana,first_name_kana,birthday,nickname,tell,email,が存在すれば登録できること" do
+    it "名前, カナ名, 誕生日, ニックネーム, 電話番号, email, パスワード
+    が存在すれば登録できること" do
       user = build(:user)
       expect(user).to be_valid
     end
 
+    it "パスワード７文字未満はNG" do
+      user = build(:user, password: "1111", password_confirmation: "1111")
+      user.valid?
+      expect(user.errors[:password]).to include("is too short (minimum is 7 characters)")
+    end
+
+    it "確認用パスワードが間違っている" do
+      user = build(:user, password: "11111111", password_confirmation: "00000000")
+      user.valid?
+      expect(user.errors[:password_confirmation]).to include("doesn't match Password")
+    end
+
+#=====================================================================================
+#   一意性のテスト
+#=====================================================================================
+    it "email一意性チェック" do
+      user = create(:user)
+      another_user = build(:user)
+      another_user.valid?
+      expect(another_user.errors[:email]).to include("has already been taken")
+    end
+
+#=====================================================================================
+#   Not Null 制約のテスト
+#=====================================================================================
     it "last_nameがない場合は登録できないこと" do
       user = build(:user, last_name: nil)
       user.valid?
@@ -42,13 +68,6 @@ describe User do
       user = build(:user, email: nil)
       user.valid?
       expect(user.errors[:email]).to include("can't be blank")
-    end
-
-    it "重複したemailが存在する場合登録できないこと" do
-      user = create(:user)
-      another_user = build(:user, email: user.email)
-      another_user.valid?
-      expect(another_user.errors[:email]).to include("has already been taken")
     end
 
     it "birthdayがない場合は登録できないこと" do
