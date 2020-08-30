@@ -9,6 +9,8 @@
   .header2__under
     = link_to "#", class: "header2__under--catBtn" do
       カテゴリ
+      - @category.each do |c|
+        =link_to c.name, "#"
     = link_to "#", class: "header2__under--bldBtn" do
       ブランド
     = link_to sessions_path, class: "header2__under--loginBtn" do
