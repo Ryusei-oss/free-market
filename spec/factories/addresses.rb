@@ -5,5 +5,6 @@ FactoryBot.define do
     area        {"大阪府"}
     city        {"大阪市"}
     house_number{"1234"}
+    building    {"24"}
   end
 end
