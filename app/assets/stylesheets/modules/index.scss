@@ -58,24 +58,22 @@
      &__under{
          height: 40px;
          line-height: 40px;
-
+         width: 100%;
          &--catBtn{
              text-decoration: none;
-             padding-right: 50px;
              color: black;
              font-size: 14px;
          }
 
          &--bldBtn{
             text-decoration: none;
-            padding-right: 685px;
             color: black;
             font-size: 14px;
         }
 
         &--loginBtn{
             text-decoration: none;
-            padding-right: 20px;
+            margin-left: 130px;
             color: black;
             font-size: 14px;
         }
@@ -888,21 +886,13 @@
     }
 }
 
-// ======================================================================
+// =======プルダウンメニューの実装===================================
 .dropdwn{
-    max-width: 1200px;
     display: flex;
+    justify-content: space-between;
 }
 
-ul{
-    text-align: center;
-    list-style-type: none;
-    margin: 0 auto;
-    padding: 0;
-    color: #fff;
-}
-li{
-    max-width: calc(1200px/5);
+.header2_under li{
     position: relative;
     padding: 5px;
     display: block;
@@ -910,34 +900,42 @@ li{
 }
 
 .dropdwn>li{
-    width: 1200px;
-    margin: 1px;
-    background: #7ba5ff;
+    width: 200px;
     display: inline;
+    text-align:center;
 }
 
 .dropdwn_menu{
-    width: 100%;
     display: none;
     position: absolute;
-    margin-left: -5px;
-    margin-top: 5px;
-    padding: 0;
-    background: rgb(75, 100, 209);
+    background-color:white;
+    border: solid 1px black;
+    z-index: 99999999;
+    width: 200px;
 }
 
 .dropdwn_menu li{
-    width: 100%;
+    display:flex;
 }
 
-.dropdwn_menu li a{
+.dropdwn_menu li div{
+    width: 100%;
+    text-align:center;
     padding: 5px 0;
     margin: -5px 5px -5px -5px;
     display: block;
-    color: #fff;
+    border: solid 1px black;
 }
 
-li a:hover{
-    background: #b3d7ff;
-    color: rgb(65, 65, 65);
+li div:hover{
+    background: #3CCACE;
+}
+
+.dropdwn_menu_child{
+    margin-left:200px;
+    position: absolute;
+    background-color:white;
+    z-index: 99999999;
+    width: 200px;
+    border: solid 1px black;
 }
