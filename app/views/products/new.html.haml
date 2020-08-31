@@ -42,6 +42,7 @@
         必須
       .main__name__product
         = f.text_field :name, class: "main__name__product-box", placeholder: "40文字まで"
+        .error-messages#error-name
       .main__description
       %h3
         商品の説明
@@ -54,6 +55,7 @@
           0
         %span
           &frasl; 1000
+        .error-messages#error-text
     .main__detail
       %p.main__detail__tag 
         商品の詳細
@@ -99,6 +101,7 @@
         必須
       .main__detail__quality-space
         = f.collection_select :quality_id,Quality.all, :id, :name, {prompt:"選択してください"}, {class: "main__detail__quality-box"}
+        .error-messages#error-quality
     .main__delivery
       %p.main__delivery__tag
         配送について
@@ -109,6 +112,7 @@
         必須
       .main__delivery__charge-space
         = f.collection_select :shipping_charge_id,ShippingCharge.all, :id, :name, {prompt:"選択してください"}, {class: "main__delivery__charge-box"}
+        .error-messages#error-charge
       .main__delivery__area
         %h3
           配送元の地域
@@ -116,6 +120,7 @@
           必須
         .main__delivery__area-space
           = f.collection_select :area_id, Area.all, :id, :name, {prompt:"選択してください"}, {class: "main__delivery__area-box"}
+          .error-messages#error-area
       .main__delivery__date
         %h3
           発送までの日数
@@ -123,6 +128,7 @@
           必須
         .main__delivery__date-space
           = f.collection_select :delivery_date_id,DeliveryDate.all,  :id, :name, {prompt:"選択してください"}, {class: "main__delivery__date-box"}
+          .error-messages#error-date
     .main__price
       %p.main__price__tag
         価格（¥300〜9,999,999）
@@ -137,6 +143,7 @@
             ¥
           .main__price__selling__price__box
             = f.number_field :price, class: "main__price__selling__price__box-input", placeholder: "300",min: 300, max: 9999999
+            .error-messages#error-price
         .main__price__selling__fee
           .main__price__selling__fee__right
             .main__price__selling__fee__right-label

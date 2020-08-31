@@ -160,7 +160,7 @@
     }
   }
   &__delivery {
-    height: 444px;
+    height: 515px;
     padding: 40px;
     border-bottom: solid 1px #f5f5f5;
     &__tag {
@@ -444,4 +444,11 @@ h3 {
       font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
     }
   }
+}
+.error-messages {
+  color: #ff0211;
+  font-size: 14px;
+  line-height: 1.4em;
+  margin: 16px 0;
+  box-sizing: border-box;
 }
