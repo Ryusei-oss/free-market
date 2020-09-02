@@ -8,28 +8,26 @@
         = link_to image_tag("icon/icon-search 1.png",class: "icon"),'#'
   .header2__under
     %ul.dropdwn
-      %li.header2__under--catBtn
+      %li
         カテゴリ
-        %ul.dropdwn_menu
-          - @category.each do |c|
+        %ul
+          - @category.each do |parent|
             %li
-              %div
-                = link_to c.name, "#"
-              %ul.dropdwn_menu_child
-                - c.children.each do |ch|
+              = link_to parent.name, "#", class: "touch"
+              %ul
+                - parent.children.each do |child| 
                   %li
-                    %div
-                      = link_to ch.name, "#"
-
-      %li.header2__under--bldBtn
+                    = link_to child.name, "#", class: "touch"
+                    %ul
+                      - child.children.each do |grandchild|
+                        %li
+                          = link_to grandchild.name, "#", class: "touch"
+      %li
         ブランド
-        %ul.dropdwn_menu
-          %li
-            追記予定
-      %li.header2__under--loginBtn
-        = link_to sessions_path, class: "header2__under--loginBtn" do
+      %li
+        = link_to sessions_path, class: "" do
           ログイン
-      %li.header2__under--newBtn
-        = link_to registrations_path, class: "header2__under--newBtn" do
+      %li
+        = link_to registrations_path, class:"" do
           新規会員登録
 

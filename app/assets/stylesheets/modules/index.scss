@@ -889,53 +889,50 @@
 // =======プルダウンメニューの実装===================================
 .dropdwn{
     display: flex;
-    justify-content: space-between;
-}
-
-.header2_under li{
-    position: relative;
-    padding: 5px;
-    display: block;
-    cursor: pointer;
+    height: 3rem;
+    margin: 0 auto;
+    width: 1000px;
 }
 
 .dropdwn>li{
-    width: 200px;
-    display: inline;
-    text-align:center;
+    width: 25%;
+    z-index:999900;
 }
 
-.dropdwn_menu{
-    display: none;
-    position: absolute;
-    background-color:white;
-    border: solid 1px black;
-    z-index: 99999999;
-    width: 200px;
-}
-
-.dropdwn_menu li{
-    display:flex;
-}
-
-.dropdwn_menu li div{
-    width: 100%;
-    text-align:center;
-    padding: 5px 0;
-    margin: -5px 5px -5px -5px;
+.dropdwn li {
+    list-style: none;
+    position: relative;
     display: block;
-    border: solid 1px black;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
 }
 
-li div:hover{
-    background: #3CCACE;
-}
-
-.dropdwn_menu_child{
-    margin-left:200px;
-    position: absolute;
+.dropdwn li li{
+    height: 0;
+    overflow: hidden;
+    transition: .5s;
     background-color:white;
-    z-index: 99999999;
-    width: 200px;
-    border: solid 1px black;
+    border-radius: 3px;
+    
+}
+
+.dropdwn li:hover > ul > li {
+    height: 2.5rem;
+    overflow: visible;
+    border: solid 1px gray;
+}
+
+.dropdwn li ul li ul {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.dropdwn li:hover > .touch{
+    background-color:#3AB9BC;
+    display: block;
 }
