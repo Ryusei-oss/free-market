@@ -26,3 +26,4 @@ ladies_child_array.each_with_index do |child, i|
     child.children.create(name: grandchild)
   end
 end
+

@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_000455) do
     t.integer "quality_id", null: false
     t.integer "shipping_charge_id", null: false
     t.integer "delivery_date_id", null: false
-    t.string "trading_status", null: false
+    t.string "trading_status", default: "出品中", null: false
     t.integer "area_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
