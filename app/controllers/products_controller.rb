@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
     def new
       @product = Product.new
       @product.images.new
+      @category_parent = Category.where("ancestry is null")
     end
   
     def create
@@ -16,6 +17,14 @@ class ProductsController < ApplicationController
       end
     end
   
+    def category_children
+      @category_children = Category.find("#{params[:parent_id]}").children
+    end
+
+    def category_grandchildren
+      @category_grandchildren = Category.find("#{params[:child_id]}").children
+    end
+
     private
     def product_params
       params.require(:product).permit(:name,:price,:explanation,:size,:quality,:shipping_charge,:delivery_date,:trading_status,:area, images_attributes: [:image])

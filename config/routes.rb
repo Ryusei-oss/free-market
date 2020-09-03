@@ -10,4 +10,15 @@ Rails.application.routes.draw do
   get '/product', to: 'items#product'
   get '/purchase', to: 'items#purchase'
 
+  resources :products do
+    collection do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+    end
+    member do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+
 end

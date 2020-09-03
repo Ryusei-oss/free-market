@@ -50,12 +50,12 @@
         必須
       .main__description-space
         = f.text_area :explanation, class: "main__description-box", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）    例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .error-messages#error-text
       .main__description__counter
         %span.main__description__counter-js
           0
         %span
           &frasl; 1000
-        .error-messages#error-text
     .main__detail
       %p.main__detail__tag 
         商品の詳細
@@ -65,21 +65,8 @@
       %span.required-tag
         必須
       .main__detail__category-space
-        %select.main__detail__category-box{helper: ""}
-          %option{value: "0"}選択してください
-          %option{value: "1"}レディース
-          %option{value: "2"}メンズ
-          %option{value: "3"}ベビー・キッズ
-          %option{value: "4"}インテリア・住まい・小物
-          %option{value: "5"}本・音楽・ゲーム
-          %option{value: "6"}おもちゃ・ホビー・グッズ
-          %option{value: "7"}コスメ・香水・美容
-          %option{value: "8"}家電・スマホ・カメラ
-          %option{value: "9"}スポーツ・レジャー
-          %option{value: "10"}ハンドメイド
-          %option{value: "11"}チケット
-          %option{value: "12"}自動車・オートバイ
-          %option{value: "13"}その他
+        = f.collection_select :category_id, @category_parent, :id, :name, {prompt:"選択してください"}, {class: "main__detail__category-box"}
+        .error-messages#error-category
       .main__detail__size
       %h3
         サイズ
