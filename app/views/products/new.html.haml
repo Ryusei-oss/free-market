@@ -66,13 +66,6 @@
       .main__detail__category-space
         = f.collection_select :category_id, @category_parent, :id, :name, {prompt:"選択してください"}, {class: "main__detail__category-box"}
         .error-messages#error-category
-      .main__detail__size
-      %h3
-        サイズ
-      %span.required-tag
-        必須
-      .main__detail__size-space
-        = f.collection_select :size_id,Size.all, :id, :name, {prompt:"選択してください"}, {class: "main__detail__size-box"}
       .main__detail__brand
       %h3
         ブランド

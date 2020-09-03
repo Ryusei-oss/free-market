@@ -4,7 +4,6 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :name ,null: false
       t.integer :price ,null: false
       t.text :explanation ,null: false
-      t.integer :size_id ,null: false
       t.integer :quality_id ,null: false
       t.integer :shipping_charge_id ,null: false
       t.integer :delivery_date_id ,null: false
