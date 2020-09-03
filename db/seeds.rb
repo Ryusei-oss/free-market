@@ -27,3 +27,7 @@ ladies_child_array.each_with_index do |child, i|
   end
 end
 
+user = User.new(last_name: '山田',first_name: '太朗', last_name_kana: 'ヤマダ', first_name_kana: 'タロウ',
+birthday: '2020-01-01', nickname: 'ヤマタロー', tell: '11111111',
+email: 'yamada_taro@japan.com', password: '00000000', password_confirmation: '00000000')
+user.save!
