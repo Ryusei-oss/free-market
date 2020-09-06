@@ -4,34 +4,107 @@ describe Product do
   describe '#create' do
 
 
-#正常動作
+    it "正常の動作" do
+      product = build(:product)
+      expect(product).to be_valid
+    end
+    #======= not null 制約のチェック
 
-#======= not null 制約のチェック
+    #name: nilの時にエラー
+    it "nameがない場合は登録できないこと" do
+      product = build(:product, name: nil)
+      product.valid?
+      expect(product.errors[:name]).to include("can't be blank")
+    end
 
-#name: nilの時にエラー
-it "nicknameがない場合は登録できないこと" do
-  product = build(:product, name: nil)
-  product.valid?
-  expect(product.errors[:name]).to include("can't be blank")
-end
-#explanation: nilの時にエラー
-#quility_id: nilの時にエラー
-#shipping_charge_id: nilの時にエラー
-#area_id: nilの時にエラー
-#delivery_date_id: nilの時にエラー
-#price: nilの時にエラー
-#user: nilのときにエラー
-#category_id: nilの時にエラー
-#image: nilの時にエラー
+    #explanation: nilの時にエラー
+    it "explanationがない場合は登録できないこと" do
+      product = build(:product, explanation: nil)
+      product.valid?
+      expect(product.errors[:explanation]).to include("can't be blank")
+    end
 
-#=======その他バリデーション違反のチェック
+    #quility_id: nilの時にエラー
+    it "quality_idがない場合は登録できないこと" do
+      product = build(:product, quality_id: nil)
+      product.valid?
+      expect(product.errors[:quality_id]).to include("can't be blank")
+    end
 
-#name: 名前40文字以上の時にエラー
-#explanation: 1000文字以上の時にエラー
-#quality_id = 0? のときにエラー
-#shipping_charge_id = 0? のときにエラー
-#area_id = 0? のときにエラー
-#delivery_date_id = 0? のときにエラー
-#price: 300 < price || 10000000 < price でエラー
+    #shipping_charge_id: nilの時にエラー
+    it "shipping_idがない場合は登録できないこと" do
+      product = build(:product, shipping_charge_id: nil)
+      product.valid?
+      expect(product.errors[:shipping_charge_id]).to include("can't be blank")
+    end
+
+    #area_id: nilの時にエラー
+    it "area_idがない場合は登録できないこと" do
+      product = build(:product, area_id: nil)
+      product.valid?
+      expect(product.errors[:area_id]).to include("can't be blank")
+    end
+
+    #delivery_date_id: nilの時にエラー
+    it "delivery_date_idがない場合は登録できないこと" do
+      product = build(:product, delivery_date_id: nil)
+      product.valid?
+      expect(product.errors[:delivery_date_id]).to include("can't be blank")
+    end
+
+    #price: nilの時にエラー
+    it "priceがない場合は登録できないこと" do
+      product = build(:product, price: nil)
+      product.valid?
+      expect(product.errors[:price]).to include("is not a number")
+    end
+
+    #user: nilのときにエラー ユーザーマイページをマージしたら実装
+    # it "userがない場合は登録できないこと" do
+    #   product = build(:user_id, name: nil)
+    #   product.valid?
+    #   expect(product.errors[:user_id]).to include("can't be blank")
+    # end
+
+    #category_id: nilの時にエラー
+    it "category_idがない場合は登録できないこと" do
+      product = build(:product, category: nil)
+      product.valid?
+      expect(product.errors[:category]).to include("must exist")
+    end
+    
+    #image: nilの時にエラー
+    it "imageがない場合は登録できないこと" do
+      product = build(:product)
+      product.images[0].image = nil
+      img = product.images[0]
+      img.valid?
+      expect(img.errors[:image]).to include("can't be blank")
+    end
+
+    #=======その他バリデーション違反のチェック
+
+    #name: 名前40文字以上の時にエラー
+    it "explanationが1000字以上のときにエラー" do
+      product = build(:product, name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+      product.valid?
+      expect(product.errors[:name]).to include("is too long (maximum is 40 characters)")
+    end
+    #explanation: 1000文字以上の時にエラー
+    it "explanationが1000字以上のときにエラー" do
+      product = build(:product, explanation: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+      product.valid?
+      expect(product.errors[:explanation]).to include("is too long (maximum is 1000 characters)")
+    end
   end
 end

@@ -1,11 +1,11 @@
 class Product < ApplicationRecord
   validates :name, length: {maximum: 40}, presence: true
   validates :explanation, length: {maximum: 1000}, presence: true
-  validates :quality_id, exclusion: {in: %w(選択してください) }
-  validates :shipping_charge_id, exclusion: {in: %w(選択してください) }
-  validates :area_id, exclusion: {in: %w(選択してください) }
-  validates :delivery_date_id,  exclusion: {in: %w(選択してください) }
-  validates :price, numericality: [greater_than: 300, less_than: 10000000]
+  validates :quality_id, exclusion: {in: %w(選択してください) }, presence: true
+  validates :shipping_charge_id, exclusion: {in: %w(選択してください) }, presence: true
+  validates :area_id, exclusion: {in: %w(選択してください) }, presence: true
+  validates :delivery_date_id,  exclusion: {in: %w(選択してください) }, presence: true
+  validates :price, numericality: [greater_than: 300, less_than: 10000000], presence: true
 
   belongs_to :category
   has_many :images
