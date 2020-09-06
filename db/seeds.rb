@@ -28,17 +28,15 @@ if !Category.find_by_id(1)
     end
   end
 end
-group :development, :test do
-  if !User.find_by_id(1)
-    user = User.new(last_name: '山田',first_name: '太朗', last_name_kana: 'ヤマダ', first_name_kana: 'タロウ',
-    birthday: '2020-01-01', nickname: 'ヤマタロー', tell: '11111111',
-    email: 'yamada_taro@japan.com', password: '00000000', password_confirmation: '00000000')
-    user.save!
-  end
+if !User.find_by_id(1)
+  user = User.new(last_name: '山田',first_name: '太朗', last_name_kana: 'ヤマダ', first_name_kana: 'タロウ',
+  birthday: '2020-01-01', nickname: 'ヤマタロー', tell: '11111111',
+  email: 'yamada_taro@japan.com', password: '00000000', password_confirmation: '00000000')
+  user.save!
+end
 
-  if !Product.find_by_id(1)
-    product = Product.create(name: "apple",price: 1000,explanation: "これはりんごです",quality_id: 1,
-    shipping_charge_id: 1,delivery_date_id: 1,trading_status: "出品中",area_id: 1, category_id: 1, 
-    images_attributes: [image: ""])
-  end
+if !Product.find_by_id(1)
+  product = Product.create(name: "apple",price: 1000,explanation: "これはりんごです",quality_id: 1,
+  shipping_charge_id: 1,delivery_date_id: 1,trading_status: "出品中",area_id: 1, category_id: 1, 
+  images_attributes: [image: ""])
 end

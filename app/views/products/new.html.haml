@@ -24,9 +24,9 @@
         .item-num-0#image-box__container
           = f.fields_for :images do |i|
             .input-area
-              = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
+              = i.file_field :image, type: 'file', name: "product[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
               %label{for: "img-file"}
-                %i.fas.fa-camera　画像を添付する
+                %i.fas.fa-camera 画像を添付する
         - if @product.errors.any?
           - if @product.errors[:image]
             .error-messages
