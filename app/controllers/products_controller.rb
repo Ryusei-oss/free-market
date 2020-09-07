@@ -11,9 +11,13 @@ class ProductsController < ApplicationController
   
     def create
       @product = Product.create(product_params)
-      respond_to do |format|
-        format.html { redirect_to :root }
-        format.json { render json: @product}
+      if !@product.save
+        redirect_to new_product_path
+      elsif
+        respond_to do |format|
+          format.html { redirect_to :root }
+          format.json { render json: @product}
+        end
       end
     end
   
