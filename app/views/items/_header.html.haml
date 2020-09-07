@@ -11,8 +11,14 @@
       カテゴリ
     = link_to "#", class: "header2__under--bldBtn" do
       ブランド
-    = link_to sessions_path, class: "header2__under--loginBtn" do
-      ログイン
-    = link_to registrations_path, class: "header2__under--newBtn" do
-      新規会員登録
+    - if user_signed_in?
+      = link_to user_path(current_user), class: "header2__under--loginBtn" do
+        マイページ
+      = link_to destroy_user_session_path, method: :delete, class: "header2__under--newBtn" do
+        ログアウト
+    - else
+      = link_to new_user_session_path, class: "header2__under--loginBtn" do
+        ログイン
+      = link_to new_user_registration_path, class: "header2__under--newBtn" do
+        新規会員登録
 

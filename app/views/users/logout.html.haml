@@ -1,0 +1,20 @@
+.mypage
+  .mypage__top-bar
+    = render partial: 'users/header_mypage'
+  .mypage__adress
+    = link_to 'FreeMarket', root_path 
+    > マイページ >ログアウト
+
+  .mypage__middle-bar
+    .middle-bar
+      =render partial: 'users/middle_side_bar_mypage'
+      .middle-bar__contents
+        .middle-bar__contents__me
+          .me
+            .me__icon 
+              =link_to root_path do
+                .me__show.default-font
+                  = link_to destroy_user_session_path, method: :delete, class: "header2__under--newBtn" do
+                    ログアウト
+  .mypage__bottom-bar
+    =render partial: 'users/fotter_mypage'

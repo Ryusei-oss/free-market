@@ -1,17 +1,17 @@
 .mypage
   .mypage__top-bar
-    = render partial: 'items/header_mypage'
+    = render partial: 'users/header_mypage'
   .mypage__adress
     = link_to 'FreeMarket', root_path, class:"default-font"
     > マイページ
 
   .mypage__middle-bar
     .middle-bar
-      =render partial: 'items/middle_side_bar_mypage'
-      =render partial: 'items/middle_contents_mypage'
+      =render partial: 'users/middle_side_bar_mypage'
+      =render partial: 'users/middle_contents_mypage'
 
   .mypage__bottom-bar
-    =render partial: 'items/fotter_mypage'
+    =render partial: 'users/fotter_mypage'
 
   .mypage__sell
     出品する
