@@ -39,7 +39,6 @@ $(function(){
         if(file_field.files.length==1){
           $('input[type=file]').val(null)
           dataBox.clearData();
-          console.log(dataBox)
         }else{
           $.each(file_field.files, function(i,input){
             if(input.name==target_name){
