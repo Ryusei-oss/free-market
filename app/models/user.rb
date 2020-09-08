@@ -7,5 +7,6 @@ class User < ApplicationRecord
   validates :last_name, :first_name, :last_name_kana,:first_name_kana,
             :birthday, :nickname, :tell, presence: true
 
+  has_many :products
   has_many :addresses
 end

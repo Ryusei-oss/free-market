@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :products, except: :show
+  resources :products, only: :show
   resources :items
   resources :users, only: :show do
     resources :addresses
+    resources :products, except: :show
   end
   root to: 'items#index'
   get '/registrations', to: 'items#registrations'
