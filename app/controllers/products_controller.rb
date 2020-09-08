@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
       @products = Product.includes(:images).order('created_at DESC')
     end
     def show
-    
+      @product = Product.find(1)
     end
 
     def new
