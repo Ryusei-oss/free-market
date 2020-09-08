@@ -7,6 +7,7 @@ class Product < ApplicationRecord
   validates :delivery_date_id,  exclusion: {in: %w(選択してください) }, presence: true
   validates :price, numericality: [greater_than: 300, less_than: 10000000], presence: true
 
+  belongs_to :user
   belongs_to :category
   has_many :images
   accepts_nested_attributes_for :images, allow_destroy: true

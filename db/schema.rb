@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 2020_08_29_000455) do
     t.integer "area_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "category_id"
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
     t.bigint "brand_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
