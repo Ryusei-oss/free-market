@@ -38,16 +38,23 @@ ActiveRecord::Schema.define(version: 2020_08_28_220853) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_images_on_product_id"
+  end
+
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
     t.text "explanation", null: false
-    t.string "size", null: false
-    t.string "quality", null: false
-    t.string "shipping_charge", null: false
-    t.string "delivery_date", null: false
-    t.string "trading_status", null: false
-    t.string "area", null: false
+    t.integer "quality_id", null: false
+    t.integer "shipping_charge_id", null: false
+    t.integer "delivery_date_id", null: false
+    t.string "trading_status", default: "出品中", null: false
+    t.integer "area_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -78,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_220853) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "products"
   add_foreign_key "addresses", "users"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"

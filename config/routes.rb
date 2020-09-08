@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :products, except: :show
   resources :items
   resources :users, only: :show do
     resources :addresses
@@ -11,7 +12,16 @@ Rails.application.routes.draw do
   get '/register', to: 'items#register'
   get '/product', to: 'items#product'
   get '/purchase', to: 'items#purchase'
-  get '/new', to: 'items#new'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :products do
+    collection do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+    end
+    member do
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+
 end
