@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/sessions', to: 'items#sessions'
   get 'logout', to: 'users#logout'
   get '/register', to: 'items#register'
-  get '/product', to: 'items#product'
+  get '/productshow', to: 'items#product'
   get '/purchase', to: 'items#purchase'
 
   resources :products do
