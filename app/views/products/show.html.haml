@@ -2,32 +2,34 @@
 .attribute
   %ul.attribute__ul
     %li
-      = link_to "#" do
+      = link_to items_path do
         FURIMA
     %li
       %i.fa.fa-angle-right
     %li
       = link_to "#" do
-        ベビー・キッズ
+        = @product.category.parent.parent.name
     %li
       %i.fa.fa-angle-right
     %li
       = link_to "#" do
-        ベビー服(男の子用)  ~95cm
+        = @product.category.parent.name
     %li
       %i.fa.fa-angle-right
     %li
       = link_to "#" do
-        アウター
+        = @product.category.name
     %li
       %i.fa.fa-angle-right
     %li
-      %a ee
+      %a 
+        = @product.name
 
 .product
   .product__main
     .product__main--name
-      %p ee
+      %p 
+        = @product.name
     .product__main--image
       = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG", class:"image"
     .product__main--imagesub
@@ -45,38 +47,42 @@
         %tbody
           %tr
             %th.left 出品者
-            %td.right ss
+            %td.right 
+              = @product.user.nickname
           %tr
             %th.left カテゴリー
             %td.right
               = link_to "#" , class: "link" do
-                ベビー・キッズ
+                = @product.category.parent.parent.name
               %br/
               = link_to "#" , class: "link" do
-                ベビー服(男の子用)  ~95cm
+                = @product.category.parent.name
               %br/
               = link_to "#" , class: "link" do
-                アウター
-          %tr
-            %th.left ブランド
-            %td.right
-          %tr
-            %th.left 商品のサイズ
-            %td.right
+                = @product.category.name
+          - if @bland
+            %tr
+              %th.left ブランド
+              %td.right
+                = link_to "#" , class: "link" do
+                  = @brand.name
           %tr
             %th.left 商品の状態
-            %td.right 新品/未使用
+            %td.right
+              = @product.quality.name
           %tr
             %th.left 配送料の負担
-            %td.right 送料込み（出品者負担）
+            %td.right
+              = @product.shipping_charge.name
           %tr
             %th.left 発送元の地域
             %td.right
               = link_to "#" , class: "link" do
-                北海道
+                = @product.area.name
           %tr
             %th.left 発送日の目安
-            %td.right 1-2日で発送
+            %td.right
+              = @product.delivery_date.name
     .product__main--under
       .product__main--under__left
         = link_to "#" , class: "left" do
@@ -97,9 +103,17 @@
       %button.btn
         = link_to purchase_path do
           %i.fa.fa-comment コメントする
-      %button.btn
-        = link_to purchase_path do
-          %i.fa.fa-comment 購入する
+      - if @product.user == current_user
+        %button.btn
+          = link_to edit_user_product_path(current_user) do
+            %i.fa.fa-comment 編集する
+        %button.btn
+          = link_to user_product_path(current_user), method: :delete do
+            %i.fa.fa-comment 削除する
+      - else
+        %button.btn
+          = link_to purchase_path do
+            %i.fa.fa-comment 購入する
 
   .product__number
     .product__number--left

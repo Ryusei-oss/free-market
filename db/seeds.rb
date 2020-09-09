@@ -33,11 +33,28 @@ if !User.find_by_id(1)
   birthday: '2020-01-01', nickname: 'ヤマタロー', tell: '11111111',
   email: 'yamada_taro@japan.com', password: '00000000', password_confirmation: '00000000')
   user.save!
+  user = User.new(last_name: '田中',first_name: '二郎', last_name_kana: 'タナカ', first_name_kana: 'ジロウ',
+    birthday: '2020-01-01', nickname: 'タナジロー', tell: '22222222',
+    email: 'tanaka_jiro@japan.com', password: '1111111', password_confirmation: '1111111')
+  user.save!
 end
 
 if !Product.find_by_id(1)
   image = File.open("#{Rails.root}/spec/images/test1.jpg")
   product = Product.create(name: "apple",price: 1000,explanation: "これはりんごです",quality_id: 1,
-  shipping_charge_id: 1,delivery_date_id: 1,trading_status: "出品中",area_id: 1,user_id: 1, category_id: 1, 
-  images_attributes: [image: image])
+    shipping_charge_id: 1,delivery_date_id: 1,trading_status: "出品中",area_id: 1,user_id: 1, category_id: 3, 
+    images_attributes: [image: image])
+  product = Product.create(name: "orange",price: 1000,explanation: "これはオレンジです",quality_id: 1,
+    shipping_charge_id: 1,delivery_date_id: 1,trading_status: "出品中",area_id: 1,user_id: 1, category_id: 3, 
+    images_attributes: [image: image])
+  product = Product.create(name: "greap",price: 1000,explanation: "これはぶどうです",quality_id: 1,
+    shipping_charge_id: 1,delivery_date_id: 1,trading_status: "出品中",area_id: 1,user_id: 1, category_id: 3, 
+    images_attributes: [image: image])
+  product = Product.create(name: "iphone",price: 1000,explanation: "これはipnoneです",quality_id: 1,
+    shipping_charge_id: 1,delivery_date_id: 1,trading_status: "出品中",area_id: 1,user_id: 2, category_id: 3, 
+    images_attributes: [image: image])
+  product = Product.create(name: "galaxy",price: 1000,explanation: "これはgalaxyです",quality_id: 1,
+    shipping_charge_id: 1,delivery_date_id: 1,trading_status: "出品中",area_id: 1,user_id: 2, category_id: 3, 
+    images_attributes: [image: image])
+
 end

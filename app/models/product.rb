@@ -16,5 +16,6 @@ class Product < ApplicationRecord
   belongs_to_active_hash :area
   belongs_to_active_hash :shipping_charge
   belongs_to_active_hash :quality
+  belongs_to_active_hash :delivery_date
 
 end

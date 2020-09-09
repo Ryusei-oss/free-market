@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
     end
     def show
       @product = Product.find(1)
+      if @product.brand_id
+        @brand = Bland.find(@product.brand_id)
+      end
     end
 
     def new
@@ -24,6 +27,15 @@ class ProductsController < ApplicationController
       end
     end
   
+    def edit
+    end
+
+    def update
+    end
+
+    def destroy
+    end
+
     def category_children
       @category_children = Category.find("#{params[:parent_id]}").children
     end
