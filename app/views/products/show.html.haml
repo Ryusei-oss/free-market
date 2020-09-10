@@ -110,10 +110,10 @@
           %i.fa.fa-comment コメントする
       - if @product.user == current_user
         %button.btn
-          = link_to edit_user_product_path(current_user) do
+          = link_to edit_product_path do
             %i.fa.fa-comment 編集する
         %button.btn
-          = link_to user_product_path(current_user), method: :delete do
+          = link_to product_path, method: :delete do
             %i.fa.fa-comment 削除する
       - else
         %button.btn
