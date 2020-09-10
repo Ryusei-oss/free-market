@@ -10,6 +10,9 @@ class ProductsController < ApplicationController
     end
 
     def new
+      if !current_user
+        redirect_to root_path
+      end
       @product = Product.new
       @product.images.new
       @category_parent = Category.where("ancestry is null")
