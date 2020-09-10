@@ -31,15 +31,20 @@
       %p 
         = @product.name
     .product__main--image
-      = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG", class:"image"
+      - if @product.images[0].image
+        = image_tag "#{@product.images[0].image.url}", class:"image"
     .product__main--imagesub
-      .product__main--imagesub__2
-        = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/17/IMG_9069.JPG", class:"subimage"
-      .product__main--imagesub__3
-        = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG", class:"subimage"
+      - if @product.images[1]
+        .product__main--imagesub__2
+          = image_tag "#{@product.images[1].image.url}", class:"subimage"
+      - if @product.images[2]
+        .product__main--imagesub__3
+          = image_tag "#{@product.images[2].image.url}", class:"subimage"
     .product__main--price
-      %p.total 30,000円
-      %p.tax (税込) 送料混み
+      %p.total 
+        = @product.price
+      %p.tax
+        = @product.shipping_charge.name
     .product__main--explanation
       %p ここに説明が入ります。 追加実装課題
     .product__main--catalog
