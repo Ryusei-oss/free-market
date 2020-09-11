@@ -103,31 +103,20 @@
                 円
               %p.tax (税込)
               %p.good ★０
+        - else
+          .picup__top--contents__no2
+            .picup__top--contents__no2--top
+              = image_tag "https://promiclospetsheets.up.n.seesaa.net/promiclospetsheets/image/E5A3B2E3828AE58887E3828C.jpg?d=a1", class:"image"
+            .picup__top--contents__no2--under
+              %p
+                = product.name
+              %p
+                = " #{product.price.to_s(:delimited)}" 
+                円
+              %p.tax (税込)
+              %p.good ★０
 
-      -# .picup__top--contents__no2
-      -#   .picup__top--contents__no2--top
-      -#     = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class:"image"
-      -#   .picup__top--contents__no2--under
-      -#     %p.name product3
-      -#     %p.price 30000円
-      -#     %p.tax (税込)
-      -#     %p.good ★０
-      -# .picup__top--contents__no3
-      -#   .picup__top--contents__no3--top
-      -#     = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class:"image"
-      -#   .picup__top--contents__no3--under
-      -#     %p.name product2
-      -#     %p.price 20000円
-      -#     %p.tax (税込)
-      -#     %p.good ★０
-      -# .picup__top--contents__no4
-      -#   .picup__top--contents__no4--top
-      -#     = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", class:"image"
-      -#   .picup__top--contents__no4--under
-      -#     %p.name product1
-      -#     %p.price 10000円
-      -#     %p.tax (税込)
-      -#     %p.good ★１
+
 
 .picup
   .picup__top
@@ -135,38 +124,32 @@
       %p.category ピックアップブランド
       %p.products アーカイブ
     .picup__top--contents
-      .picup__top--contents__no1
-        .picup__top--contents__no1--top
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", class:"image"
-        .picup__top--contents__no1--under
-          %p.name ee
-          %p.price 1000円
-          %p.tax (税込)
-          %p.good ★０
-      .picup__top--contents__no2
-        .picup__top--contents__no2--top
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class:"image"
-        .picup__top--contents__no2--under
-          %p.name product3
-          %p.price 30000円
-          %p.tax (税込)
-          %p.good ★０
-      .picup__top--contents__no3
-        .picup__top--contents__no3--top
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class:"image"
-        .picup__top--contents__no3--under
-          %p.name product2
-          %p.price 20000円
-          %p.tax (税込)
-          %p.good ★０
-      .picup__top--contents__no4
-        .picup__top--contents__no4--top
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", class:"image"
-        .picup__top--contents__no4--under
-          %p.name product1
-          %p.price 10000円
-          %p.tax (税込)
-          %p.good ★１   
+      - @products.each do |product|
+        -if product.trading_status.present? 
+          .picup__top--contents__no1
+            .picup__top--contents__no1--top
+              = link_to image_tag("#{product.images[0].image.url}", class:"image"), "product_path(product.id)"
+            .picup__top--contents__no1--under
+              %p
+                = product.name
+              %p
+                = " #{product.price.to_s(:delimited)}" 
+                円
+              %p.tax (税込)
+              %p.good ★０
+        - else
+          .picup__top--contents__no2
+            .picup__top--contents__no2--top
+              = image_tag "https://promiclospetsheets.up.n.seesaa.net/promiclospetsheets/image/E5A3B2E3828AE58887E3828C.jpg?d=a1", class:"image"
+            .picup__top--contents__no2--under
+              %p
+                = product.name
+              %p
+                = " #{product.price.to_s(:delimited)}" 
+                円
+              %p.tax (税込)
+              %p.good ★０
+    
     
 
 = render partial: 'items/fotter'
