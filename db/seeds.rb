@@ -1,6 +1,6 @@
 #親階層
 ##レディース
-#if !Category.find_by_id(1)
+if !Category.find_by_id(1)
   parents_array = ["レディース", "メンズ", "ベビー・キッズ"]
   parents_child_array = 
   [
@@ -76,7 +76,7 @@
       end
     end
   end
-
+end
 # if !User.find_by_id(1)
 #   user = User.new(last_name: '山田',first_name: '太朗', last_name_kana: 'ヤマダ', first_name_kana: 'タロウ',
 #   birthday: '2020-01-01', nickname: 'ヤマタロー', tell: '11111111',

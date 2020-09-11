@@ -5,4 +5,6 @@ class ItemsController < ApplicationController
     @category = Category.all.order("id ASC").limit(3)
   end
 
+
+
 end

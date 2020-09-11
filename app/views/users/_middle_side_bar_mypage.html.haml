@@ -34,3 +34,7 @@
       = link_to register_path, class: "default-font" do
         クレジットカードの登録/変更
       = icon("fas", "fa fa-angle-right") 
+    .middle-bar-tag
+      = link_to new_user_address_path(current_user), class: "default-font" do
+        送付先情報の登録
+      = icon("fas", "fa fa-angle-right")

@@ -1,0 +1,70 @@
+.account-page__header
+  %h1
+    = link_to "#", class: "account-page__header__furima-logo__url" do
+      = image_tag src="logo/logo.png", size: "185x49", class: "account-page__header__furima-logo__url__image"
+    .account-page__header__process
+      %ul.account-page__header__process__bar
+        %li 会員情報
+.account-page__main
+  .account-page__main__text
+    .account-page__main__text__header 
+      ログイン情報入力画面
+    .account-page__main__user-form
+      = form_for @user, url: user_session_path do |f| 
+        .email
+          .email__label
+            メール
+            %span 必須
+            = f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "PC/携帯どちらでも可"
+        .password
+          .password__label
+            パスワード
+            %span 必須
+            %i (英数字8文字以上)
+            = f.password_field :password, autocomplete: "new-password", :placeholder => "英数字8文字以上"
+        .password-check
+          .password-check__label
+            パスワード確認
+            %span 必須
+            = f.password_field :password_confirmation, autocomplete: "off", :placeholder => "入力ミスに注意してください"
+        .identification
+          %h3
+            本人確認
+          %p
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        %p.infomation
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .submit
+          %button.submit1{:content => "text", :placeholder => "次へ進む"}
+            ログインする
+          .personal-information
+            %p
+              = link_to "#", class: "personal-information1" do
+                本人情報の登録について
+      .form-group
+        %p
+          This site is protected by reCAPTCHA and the Google
+          = link_to "#", class: "policy" do
+            Privacy Policy 
+          and
+          = link_to "#", class: "service" do
+            Terms of Service
+          apply
+
+.account-page__footer
+  .account-page__footer__content
+    %ul.footer__content__list
+      %li
+        = link_to "#", class: "hooter__content__list__privacy" do
+          プライバシーポリシー
+      %li
+        = link_to "#", class: "hooter__content__list__terms" do
+          利用規約
+      %li
+        = link_to "#", class: "hooter__content__list__law" do
+          特定商品取引に関する表記
+  .footer__logo
+    = link_to "#", class: "hooter__logo__white" do
+      = image_tag src="/assets/logo-white.png", size: "185x49", class: "hooter__logo__white__image"
+    %p.footer__logo__copymark
+      © Frema,Inc.
