@@ -99,7 +99,7 @@
               %p
                 = product.name
               %p
-                = product.price 
+                = " #{product.price.to_s(:delimited)}" 
                 円
               %p.tax (税込)
               %p.good ★０
