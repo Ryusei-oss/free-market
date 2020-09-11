@@ -5,8 +5,8 @@
   parents_child_array = 
   [
     ['トップス','ジャケット/アウター','パンツ'],
-    ['aaaa','iiii','uuuu'],
-    ['eeeee','ooooo']
+    ['子カテゴリー1','子カテゴリー2','子カテゴリー3'],
+    ['子カテゴリー4','子カテゴリー5']
   ]
 
   parents_grandchild_array = 
