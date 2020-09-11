@@ -94,7 +94,7 @@
         -if product.trading_status.present? 
           .picup__top--contents__no1
             .picup__top--contents__no1--top
-              = link_to image_tag("#{product.images[0].image.url}", class:"image"), "#"
+              = link_to image_tag("#{product.images[0].image.url}", class:"image"), "product_path(product.id)"
             .picup__top--contents__no1--under
               %p
                 = product.name
@@ -103,7 +103,7 @@
                 円
               %p.tax (税込)
               %p.good ★０
-              
+
       -# .picup__top--contents__no2
       -#   .picup__top--contents__no2--top
       -#     = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class:"image"
