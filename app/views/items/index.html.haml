@@ -89,39 +89,42 @@
       %p.category ピックアップカテゴリー
       %p.products 新規投稿商品
     .picup__top--contents
-      .picup__top--contents__no1
-        .picup__top--contents__no1--top
-          -# = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", class:"image"
-          = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", class:"image"), "#"
-        .picup__top--contents__no1--under
-          %p.name ee
-          %p.price 1000円
-          %p.tax (税込)
-          %p.good ★０
-      .picup__top--contents__no2
-        .picup__top--contents__no2--top
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class:"image"
-        .picup__top--contents__no2--under
-          %p.name product3
-          %p.price 30000円
-          %p.tax (税込)
-          %p.good ★０
-      .picup__top--contents__no3
-        .picup__top--contents__no3--top
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class:"image"
-        .picup__top--contents__no3--under
-          %p.name product2
-          %p.price 20000円
-          %p.tax (税込)
-          %p.good ★０
-      .picup__top--contents__no4
-        .picup__top--contents__no4--top
-          = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", class:"image"
-        .picup__top--contents__no4--under
-          %p.name product1
-          %p.price 10000円
-          %p.tax (税込)
-          %p.good ★１
+      - @products.each do |product|
+        .picup__top--contents__no1
+          .picup__top--contents__no1--top
+            = link_to image_tag("#{product.images[0].image.url}", class:"image"), "#"
+          .picup__top--contents__no1--under
+            %p
+              = product.name
+            %p
+              = product.price 
+              円
+            %p.tax (税込)
+            %p.good ★０
+      -# .picup__top--contents__no2
+      -#   .picup__top--contents__no2--top
+      -#     = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class:"image"
+      -#   .picup__top--contents__no2--under
+      -#     %p.name product3
+      -#     %p.price 30000円
+      -#     %p.tax (税込)
+      -#     %p.good ★０
+      -# .picup__top--contents__no3
+      -#   .picup__top--contents__no3--top
+      -#     = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class:"image"
+      -#   .picup__top--contents__no3--under
+      -#     %p.name product2
+      -#     %p.price 20000円
+      -#     %p.tax (税込)
+      -#     %p.good ★０
+      -# .picup__top--contents__no4
+      -#   .picup__top--contents__no4--top
+      -#     = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", class:"image"
+      -#   .picup__top--contents__no4--under
+      -#     %p.name product1
+      -#     %p.price 10000円
+      -#     %p.tax (税込)
+      -#     %p.good ★１
 
 .picup
   .picup__top
