@@ -35,8 +35,15 @@ if !User.find_by_id(1)
   user.save!
 end
 
-# if !Product.find_by_id(1)
-#   product = Product.create(name: "apple",price: 1000,explanation: "これはりんごです",quality_id: 1,
-#   shipping_charge_id: 1,delivery_date_id: 1,trading_status: "出品中",area_id: 1, category_id: 1, 
-#   images_attributes: [image: ""])
-# end
+
+if !Image.find_by_id(1)
+  image = File.open("./public/images/hebi7.jpg")
+end
+
+if !Product.find_by_id(1)
+  product = Product.create(name: "apple",price: 1000,explanation: "これはりんごです",quality_id: 1,user_id:1,
+  shipping_charge_id: 1,delivery_date_id: 1,trading_status: "出品中",area_id: 1, category_id: 1,images_attributes: [image: image] )
+end
+
+
+

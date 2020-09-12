@@ -91,7 +91,7 @@
 
     .picup__top--contents
       - @products.each do |product|
-        -if product.trading_status.present? 
+        -if product.trading_status =='出品中'
           .picup__top--contents__no1
             .picup__top--contents__no1--top
               = link_to image_tag("#{product.images[0].image.url}", class:"image"), "product_path(product.id)"
