@@ -8,7 +8,7 @@
         = link_to image_tag("icon/icon-search 1.png",class: "icon"),'#'
   .header2__under
     %ul.dropdwn
-      %li
+      %li.header2__under--catBtn
         カテゴリ
         %ul
           - @category.each do |parent|
@@ -22,12 +22,12 @@
                       - child.children.each do |grandchild|
                         %li
                           = link_to grandchild.name, "#", class: "touch"
-      %li
+      %li.header2__under--bldBtn
         ブランド
-      %li
+      %li.header2__under--loginBtn
         = link_to sessions_path, class: "" do
           ログイン
-      %li
+      %li.header2__under--newBtn
         = link_to registrations_path, class:"" do
           新規会員登録
 

@@ -58,7 +58,7 @@
      &__under{
          height: 40px;
          line-height: 40px;
-         width: 100%;
+         position:relative;
          &--catBtn{
              text-decoration: none;
              color: black;
@@ -72,13 +72,15 @@
         }
 
         &--loginBtn{
+            text-align:right;
             text-decoration: none;
-            margin-left: 130px;
             color: black;
             font-size: 14px;
+            left: 100px;
         }
 
         &--newBtn{
+            text-align:right;
             text-decoration: none;
             color: black;
             font-size: 14px;
@@ -895,7 +897,6 @@
 }
 
 .dropdwn>li{
-    width: 25%;
     z-index:999900;
 }
 
@@ -905,7 +906,6 @@
     display: block;
     height: 2.5rem;
     line-height: 2.5rem;
-    text-align: center;
     text-decoration: none;
     width: 100%;
 }
