@@ -17,7 +17,6 @@ li a{
 }
 
 .product{
-    height: 2200px;
     background-color: #F8F8F8;
     padding-top: 40px;
  
@@ -151,7 +150,6 @@ li a{
 
     }
     &__comment{
-        height: 400px;
         background-color: white;
         width: 700px;
         margin: 0 auto;
@@ -191,7 +189,7 @@ li a{
                 border-radius: 100px;
                 text-align: center;
                 margin-top: 20px;
-                
+                margin-bottom: 10px;
             }
 
         }
