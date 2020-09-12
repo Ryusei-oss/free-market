@@ -58,17 +58,17 @@ if !Product.find_by_id(1)
 end
 
 if !Product.find_by_id(2)
-  product = Product.create(name: "さくら",price: 1000,explanation: "これは桜です",quality_id: 1,user_id:1,
+  product = Product.create(name: "さくら",price: 500,explanation: "これは桜です",quality_id: 1,user_id:1,
   shipping_charge_id: 1,delivery_date_id: 1,trading_status: "購入済",area_id: 1, category_id: 1,images_attributes: [image: image] )
 end
 
 if !Product.find_by_id(3)
-  product = Product.create(name: "みかん",price: 1000,explanation: "これはみかんです",quality_id: 1,user_id:1,
+  product = Product.create(name: "みかん",price: 1700,explanation: "これはみかんです",quality_id: 1,user_id:1,
   shipping_charge_id: 1,delivery_date_id: 1,trading_status: "出品中",area_id: 1, category_id: 1,images_attributes: [image: image] )
 end
 
 if !Product.find_by_id(4)
-  product = Product.create(name: "いちご",price: 1000,explanation: "これはいちごです",quality_id: 1,user_id:1,
+  product = Product.create(name: "いちご",price: 10900,explanation: "これはいちごです",quality_id: 1,user_id:1,
   shipping_charge_id: 1,delivery_date_id: 1,trading_status: "出品中",area_id: 1, category_id: 1,images_attributes: [image: image] )
 end
 
