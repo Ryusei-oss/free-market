@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
       @products = Product.includes(:images).order('created_at DESC')
     end
     def show
-      @product = Product.find(1)
+      @product = Product.find(3)
       if @product.brand_id
         @brand = Bland.find(@product.brand_id)
       end
@@ -37,6 +37,12 @@ class ProductsController < ApplicationController
     end
 
     def destroy
+      @product = Product.find(params[:id])
+      if @product.destroy
+        redirect_to root_path
+      else
+        render :edit
+      end
     end
 
     def category_children
