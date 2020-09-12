@@ -86,15 +86,15 @@
 .picup
   .picup__top
     .picup__top--title
-      %p.category ピックアップカテゴリー
-      %p.products 新規投稿商品
+      %p.category 新規投稿商品
+      %p.products 新着表示
 
     .picup__top--contents
       - @products.each do |product|
         -if product.trading_status =='出品中'
           .picup__top--contents__no1
             .picup__top--contents__no1--top
-              = link_to image_tag("#{product.images[0].image.url}", class:"image"), "product_path(product.id)"
+              = link_to image_tag("#{product.images[0].image.url}", class:"image"), product_path(product.id)
             .picup__top--contents__no1--under
               %p
                 = product.name
@@ -121,14 +121,14 @@
 .picup
   .picup__top
     .picup__top--title
-      %p.category ピックアップブランド
+      %p.category ピックアップカテゴリー
       %p.products アーカイブ
     .picup__top--contents
       - @products2.each do |product|
         -if product.trading_status =='出品中'
           .picup__top--contents__no1
             .picup__top--contents__no1--top
-              = link_to image_tag("#{product.images[0].image.url}", class:"image"), "product_path(product.id)"
+              = link_to image_tag("#{product.images[0].image.url}", class:"image"), product_path(product.id)
             .picup__top--contents__no1--under
               %p
                 = product.name

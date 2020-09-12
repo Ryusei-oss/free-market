@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
       @products = Product.includes(:images).order('created_at DESC')
     end
     def show
-      @product = Product.find(3)
+      @product = Product.find(params[:id])
       if @product.brand_id
         @brand = Bland.find(@product.brand_id)
       end
