@@ -24,10 +24,17 @@
                           = link_to grandchild.name, "#", class: "touch"
       %li.header2__under--bldBtn
         ブランド
-      %li.header2__under--loginBtn
-        = link_to sessions_path, class: "" do
-          ログイン
-      %li.header2__under--newBtn
-        = link_to registrations_path, class:"" do
-          新規会員登録
-
+      - if user_signed_in?
+        %li.header2__under--loginBtn
+          = link_to user_path(current_user), class: "" do
+            マイページ
+        %li.header2__under--newBtn
+          = link_to destroy_user_registration_path, class:"" do
+            ログアウト
+      - else
+        %li.header2__under--loginBtn
+          = link_to new_user_session_path, class: "" do
+            ログイン
+        %li.header2__under--newBtn
+          = link_to new_user_registration_path, class:"" do
+            新規会員登録
