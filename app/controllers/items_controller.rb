@@ -2,7 +2,9 @@ class ItemsController < ApplicationController
 
   def index
     @products = Product.includes([:images, :user]).last(4).reverse
-    @images = Image.all
+
+    @products2 = Product.where(category_id:1).last(4).reverse
+
   end
 
   def items
