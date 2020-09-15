@@ -1,1 +1,163 @@
-Edit
+.header
+  .header__logo
+    %span.logo
+      = image_tag src="logo/logo.png", size: "185x49"
+.main
+  =form_for @product, html:{class:"main__content"} do |f|
+    .main__image
+      %h3
+        出品画像
+      %span.required-tag
+        必須
+      %p.main__image__explain
+        最大3枚までアップロードできます
+      -# .main__image__upload
+      -#   %label
+      -#     %input.main__image__upload-box{type: "file"}
+
+      -#     .main__image__upload-icon
+      -#       = image_tag src="icon/icon_camera.png", size: "24x24", class: "camera"
+      -#     %p.main__image__upload-explain
+      -#       ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード   
+        
+      #image-box-1
+        .item-num-0#image-box__container
+          = f.fields_for :images do |i|
+            .input-area
+              = i.file_field :image, type: 'file', name: "product[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
+              %label{for: "img-file"}
+                %i.fas.fa-camera 画像を添付する
+        - if @product.errors.any?
+          - if @product.errors[:image]
+            .error-messages
+              - @product.errors.full_messages_for(:image).each do |error|
+                .error-message
+                  画像がありません
+
+    .main__name
+      %h3
+        商品名
+      %span.required-tag
+        必須
+      .main__name__product
+        = f.text_field :name, class: "main__name__product-box", placeholder: "40文字まで"
+        .error-messages#error-name
+      .main__description
+      %h3
+        商品の説明
+      %span.required-tag
+        必須
+      .main__description-space
+        = f.text_area :explanation, class: "main__description-box", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）    例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .error-messages#error-text
+      .main__description__counter
+        %span.main__description__counter-js
+          0
+        %span
+          &frasl; 1000
+    .main__detail
+      %p.main__detail__tag 
+        商品の詳細
+      .main__detail__category
+      %h3
+        カテゴリー
+      %span.required-tag
+        必須
+      .main__detail__category-space
+        = f.collection_select :category_id, @category_parent, :id, :name, {prompt:"選択してください"}, {class: "main__detail__category-box"}
+        .error-messages#error-category
+      .main__detail__brand
+      %h3
+        ブランド
+      %span.any-tag
+        任意
+      .main__detail__brand-space
+      %input.main__detail__brand-box{placeholder: "例）シャネル"}
+      .main__detail__quality
+      %h3
+        商品の状態
+      %span.required-tag
+        必須
+      .main__detail__quality-space
+        = f.collection_select :quality_id,Quality.all, :id, :name, {prompt:"選択してください"}, {class: "main__detail__quality-box"}
+        .error-messages#error-quality
+    .main__delivery
+      %p.main__delivery__tag
+        配送について
+      .main__delivery__charge
+      %h3
+        配送料の負担
+      %span.required-tag
+        必須
+      .main__delivery__charge-space
+        = f.collection_select :shipping_charge_id,ShippingCharge.all, :id, :name, {prompt:"選択してください"}, {class: "main__delivery__charge-box"}
+        .error-messages#error-charge
+      .main__delivery__area
+        %h3
+          配送元の地域
+        %span.required-tag
+          必須
+        .main__delivery__area-space
+          = f.collection_select :area_id, Area.all, :id, :name, {prompt:"選択してください"}, {class: "main__delivery__area-box"}
+          .error-messages#error-area
+      .main__delivery__date
+        %h3
+          発送までの日数
+        %span.required-tag
+          必須
+        .main__delivery__date-space
+          = f.collection_select :delivery_date_id,DeliveryDate.all,  :id, :name, {prompt:"選択してください"}, {class: "main__delivery__date-box"}
+          .error-messages#error-date
+    .main__price
+      %p.main__price__tag
+        価格（¥300〜9,999,999）
+      .main__price__selling
+        .main__price__selling__price
+          .main__price__selling__price__right
+            %h3
+              販売価格
+            %span.required-tag
+              必須
+          %span.en-tag
+            ¥
+          .main__price__selling__price__box
+            = f.number_field :price, class: "main__price__selling__price__box-input", placeholder: "300",min: 300, max: 9999999
+            .error-messages#error-price
+        .main__price__selling__fee
+          .main__price__selling__fee__right
+            .main__price__selling__fee__right-label
+              販売手数料（10%）
+          %span.fee_value
+            ー
+        .main__price__selling__profit
+          .main__price__selling__profit__right
+            .main__price__selling__profit__right-label
+              販売利益
+          %span.profit_value
+            ー
+    .main__btn
+      = f.submit "出品する", class: "main__btn__exhibition"
+      %button.main__btn__draft{type: "submit"}
+        下書きに保存
+      %a.main__btn__link{href: "#"}
+        もどる
+    .main__note
+      %p.main__note__description
+        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+.hooter
+  .hooter__content
+    %ul.hooter__content__list
+      %li
+        = link_to "#", class: "hooter__content__list__privacy" do
+          プライバシーポリシー
+      %li
+        = link_to "#", class: "hooter__content__list__terms" do
+          利用規約
+      %li
+        = link_to "#", class: "hooter__content__list__law" do
+          特定商品取引に関する表記
+  .hooter__logo
+    = link_to "#", class: "hooter__logo__white" do
+      = image_tag src="logo/logo-white.png", size: "185x49", class: "hooter__logo__white__image"
+    %p.hooter__logo__copymark
+      © Frema,Inc.
