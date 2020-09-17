@@ -230,7 +230,7 @@ $(function(){
       });
     }
   });
-  $('.main__detail').on('change', '#children_category', function(){
+  $(document).on('change', '#children_category', function(){
     let childrenCategoryId = $(this).val();
     if(childrenCategoryId == ''){
       $('.main__detail__category-grandchildren').remove();

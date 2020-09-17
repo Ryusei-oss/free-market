@@ -28,8 +28,12 @@ $(function(){
     var optionHtml = `<option value="${category.id}">${category.name}</option>`;
     return optionHtml;
   }
-  $('.main__detail__category-box').change(function(){
+  $(document).on('change', '.main__detail__category-box', function(){
     let parentCategoryId = $(this).val();
+    if(parentCategoryId == ''){
+      $('.main__detail__category-children').remove();
+      $('.main__detail__category-grandchildren').remove();
+    }else{
       $.ajax({
         url: 'category_children',
         type: 'GET',
@@ -56,7 +60,7 @@ $(function(){
       });
     }
   });
-  $('.main__detail__category-children"').change(function(){
+  $(document).on('change', '.main__detail__category-children', function(){
     let childrenCategoryId = $(this).val();
     if(childrenCategoryId == ''){
       $('.main__detail__category-grandchildren').remove();
