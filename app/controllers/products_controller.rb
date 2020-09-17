@@ -33,6 +33,13 @@ class ProductsController < ApplicationController
     def edit
       @product = Product.find(params[:id])
       @category_parent = Category.where("ancestry is null")
+
+      @grandchild_category = @product.category
+      @child_category = @grandchild_category.parent 
+
+      @category = Category.find(params[:id])
+      @category_children = @product.category.parent.parent.children
+      @category_grandchildren = @product.category.parent.children
     end
 
     def update

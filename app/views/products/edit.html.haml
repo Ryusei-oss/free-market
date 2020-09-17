@@ -65,6 +65,10 @@
         必須
       .main__detail__category-space
         = f.collection_select :category_id, @category_parent, :id, :name, {prompt:"選択してください"}, {class: "main__detail__category-box"}
+      .main__detail__category-space
+        = f.collection_select :category_id, @category_children, :id, :name, {prompt:"選択してください"}, {class: "main__detail__category-children"}
+      .main__detail__category-space
+        = f.collection_select :category_id, @category_grandchildren, :id, :name, {prompt:"選択してください"}, {class: "main__detail__category-grandchildren"}
         .error-messages#error-category
       .main__detail__brand
       %h3
