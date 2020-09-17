@@ -24,72 +24,66 @@ $(function(){
 
 //カテゴリープルダウンの出しわけ
 $(function(){
-  $(document).ready(function(){
-    $('.main__detail__category-box').change(function(){
-      let parentCategoryId = $(this).val();
-      if(parentCategoryId == ''){
+  function categoryOption(category){
+    var optionHtml = `<option value="${category.id}">${category.name}</option>`;
+    return optionHtml;
+  }
+  $('.main__detail__category-box').change(function(){
+    let parentCategoryId = $(this).val();
+      $.ajax({
+        url: 'category_children',
+        type: 'GET',
+        data: { parent_id: parentCategoryId },
+        dataType: 'json'
+      })
+      .done(function(category_children){
         $('.main__detail__category-children').remove();
         $('.main__detail__category-grandchildren').remove();
-      }else{
-        $.ajax({
-          url: 'category_children',
-          type: 'GET',
-          data: { parent_id: parentCategoryId },
-          dataType: 'json'
-        })
-        .done(function(category_children){
-          $('.main__detail__category-children').remove();
-          $('.main__detail__category-grandchildren').remove();
-          let optionHtml = '';
-          category_children.forEach(function(child){
-            optionHtml += categoryOption(child);
-          });
-          $('#error-category').before(`<div class="main__detail__category-space">
-                                          <select class="main__detail__category-children" id="children_category" "name="product[category_id]" required="required">
-                                            <option value="">選択してください</option>
-                                            ${optionHtml}
-                                          </select>
-                                        </div>`
-          );
-        })
-        .fail(function(){
-          alert('カテゴリー取得に失敗しました');
+        let optionHtml = '';
+        category_children.forEach(function(child){
+          optionHtml += categoryOption(child);
         });
-      }
-      $('.main__detail').on('change', '#children_category', function(){
-        let childrenCategoryId = $(this).val();
-        if(childrenCategoryId == ''){
-          $('.main__detail__category-grandchildren').remove();
-        }else{
-          $.ajax({
-            url: 'category_grandchildren',
-            type: 'GET',
-            data: { child_id: childrenCategoryId },
-            dataType: 'json'
-          })
-          .done(function(category_grandchildren){
-            $('.main__detail__category-grandchildren').remove();
-            let optionHtml = '';
-            category_grandchildren.forEach(function(grandchildren){
-              optionHtml += categoryOption(grandchildren);
-            });
-            $('#error-category').before(`<div class="main__detail__category-space">
-                                            <select class="main__detail__category-grandchildren" id="grandchildren_category" name="product[category_id]" required="required">
-                                              <option value="">選択してください</option>
-                                              ${optionHtml}
-                                            </select>
-                                          </div>`
-            );
-          })
-          .fail(function(){
-            alert('カテゴリー取得に失敗しました');
-          });
-        }
+        $('#error-category').before(`<div class="main__detail__category-space">
+                                        <select class="main__detail__category-children" id="children_category" "name="product[category_id]" required="required">
+                                          <option value="">選択してください</option>
+                                          ${optionHtml}
+                                        </select>
+                                      </div>`
+        );
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
       });
-    });
-  })
+    }
+  });
+  $('.main__detail__category-children"').change(function(){
+    let childrenCategoryId = $(this).val();
+    if(childrenCategoryId == ''){
+      $('.main__detail__category-grandchildren').remove();
+    }else{
+      $.ajax({
+        url: 'category_grandchildren',
+        type: 'GET',
+        data: { child_id: childrenCategoryId },
+        dataType: 'json'
+      })
+      .done(function(category_grandchildren){
+        $('.main__detail__category-grandchildren').remove();
+        let optionHtml = '';
+        category_grandchildren.forEach(function(grandchildren){
+          optionHtml += categoryOption(grandchildren);
+        });
+        $('#error-category').before(`<div class="main__detail__category-space">
+                                        <select class="main__detail__category-grandchildren" id="grandchildren_category" name="product[category_id]" required="required">
+                                          <option value="">選択してください</option>
+                                          ${optionHtml}
+                                        </select>
+                                      </div>`
+        );
+      })
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
+      });
+    }
+  });
 });
-// function categoryOption(category){
-//   var optionHtml = `<option value="${category.id}">${category.name}</option>`;
-//   return optionHtml;
-// }
