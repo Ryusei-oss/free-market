@@ -22,6 +22,8 @@
         
       #image-box-1
         .item-num-0#image-box__container
+          - @product.images.each do |image|
+            = image_tag image.image.url
           = f.fields_for :images do |i|
             .input-area
               = i.file_field :image, type: 'file', name: "product[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
