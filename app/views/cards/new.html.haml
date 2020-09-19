@@ -1,0 +1,51 @@
+.show-main__registration-field
+  %form.card-form{method: :post, action: "/cards", id: "chargeForm"}
+    .show-main__registration-field--text
+      クレジットカード情報登録
+    .show-main__registration-field__container
+      .show-main__registration-field__container__number
+        %label.show-main__registration-field__container__number--text
+          カード番号
+        %span.form-require
+          必須
+        %input{type: "text", placeholder: "半角数字のみ", class: "show-main__registration-field__container__number--input", id: "card-num-input"}
+      .show-main__registration-field__container__expiration
+        %label.show-main__registration-field__container__expiration--text
+          有効期限
+        %span.form-require
+          必須
+        .show-main__registration-field__container__expiration--input
+          %select#month-select
+            %option{value: ""} --
+            %option{value: "1"}01
+            %option{value: "2"}02
+            %option{value: "3"}03
+            %option{value: "4"}04
+            %option{value: "5"}05
+            %option{value: "6"}06
+            %option{value: "7"}07
+            %option{value: "8"}08
+            %option{value: "9"}09
+            %option{value: "10"}10
+            %option{value: "11"}11
+            %option{value: "12"}12
+          %select#year-select
+            %option{value: ""} --
+            %option{value: "2021"}21
+            %option{value: "2022"}22
+            %option{value: "2023"}23
+            %option{value: "2024"}24
+            %option{value: "2025"}25
+            %option{value: "2026"}26
+      .show-main__registration-field__container__security
+        %label.show-main__registration-field__container__security--text
+          セキュリティコード
+        %span.form-require
+          必須
+        %input{class: "show-main__registration-field__container__security--input", id: "security-code-input",  name: "security-code", type: "text", placeholder: "カード背面4桁もしくは3桁の番号"}
+        .show-main__registration-field__container__security--information
+          %span.show-main__registration-field__container__security--information-link
+            =link_to root_path do
+              %i.fas.fa-question-circle
+              カードの裏面の番号とは？
+      %input#add-card-btn{type: 'submit', value: "クレジットカードの登録", class: "show-main__registration-field__container--submit"}

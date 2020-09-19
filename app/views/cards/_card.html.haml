@@ -1,0 +1,8 @@
+= link_to "削除する", card_path(card), method: :delete, class: 'btn', data: { confirm: '削除してよろしいですか？' }
+
+- customer = Payjp::Customer.retrieve(card.customer_id)
+- @default_card_information = customer.cards.retrieve(card.card_id)
+= "**** **** **** " + @default_card_information.last4
+- exp_month = @default_card_information.exp_month.to_s
+- exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+= exp_month + " / " + exp_year

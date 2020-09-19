@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cards/new'
+  get 'cards/show'
   devise_for :users
   #resources :products, only: :show
   resources :items
@@ -23,6 +25,13 @@ Rails.application.routes.draw do
       get 'category_children', defaults: { format: 'json' }
       get 'category_grandchildren', defaults: { format: 'json' }
     end
+  end
+
+  resources :cards, only: [:index, :new, :create, :destroy] 
+    resources :posts do 
+      collection do 
+        post 'pay/:id'=>   'posts#pay' 
+    end 
   end
 
 end

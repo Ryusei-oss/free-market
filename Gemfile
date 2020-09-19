@@ -74,6 +74,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'fog-aws'
+gem 'payjp'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

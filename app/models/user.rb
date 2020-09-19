@@ -10,5 +10,6 @@ class User < ApplicationRecord
   has_many :likes
   has_many :products
   has_many :addresses
+  has_many :cards
   
 end
