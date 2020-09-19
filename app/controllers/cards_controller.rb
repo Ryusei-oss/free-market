@@ -16,7 +16,7 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.create(card: params[:payjp_token])
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       @card.save
-      redirect_to cards_path
+      redirect_to user_path(current_user)
     end
   end
 
@@ -25,7 +25,7 @@ class CardsController < ApplicationController
     customer = Payjp::Customer.retrieve(card.customer_id)
     customer.delete
     card.delete
-    redirect_to root_path
+    redirect_to user_path(current_user)
   end
 
   private
