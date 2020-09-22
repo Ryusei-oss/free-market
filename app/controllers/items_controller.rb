@@ -24,10 +24,14 @@ class ItemsController < ApplicationController
     @purchase = Purchase.new(user_id: current_user.id, product_id: params[:product_id])
     @purchase.save
     Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
-    Payjp::Charge.create(
-      amount: @product.price, # 決済する値段
-      card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
-      currency: 'jpy')
+    begin
+      Payjp::Charge.create(
+        amount: @product.price, # 決済する値段
+        card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+        currency: 'jpy')
+    rescue Payjp::InvalidRequestError
+      redirect_to items_path
+    end
     @product.trading_status = '売り切れ'
     @product.save
   end
