@@ -36,4 +36,11 @@ $(function () {
     });
   }
 
+  // 正しく購入できた時のアラート
+  $(".payjp-button").on(function(){
+    alert("購入ができました");
+  });
+    
+  
+
 });
