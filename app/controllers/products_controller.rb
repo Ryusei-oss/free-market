@@ -44,11 +44,11 @@ class ProductsController < ApplicationController
 
     def update
       @product = Product.find(params[:id])
-      # if @product.update
-      #   redirect_to product_path
-      # else
-      #   render :edit
-      # end
+      if @product.update(update_params)
+        redirect_to product_path(@product)
+      else
+        render :edit
+      end
     end
 
 
@@ -74,4 +74,9 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:name,:price,:explanation,:quality_id,:shipping_charge_id,:delivery_date_id,:trading_status,:area_id, :category_id, :brand_id, images_attributes: [:image]).merge(user_id: current_user.id)
     end
+
+    def update_params
+      params.require(:product).permit(:name,:price,:explanation,:quality_id,:shipping_charge_id,:delivery_date_id,:trading_status,:area_id, :category_id, :brand_id, [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
+    end
+
 end
