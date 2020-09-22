@@ -10,7 +10,7 @@
       %span.required-tag
         必須
       %p.main__image__explain
-        最大3枚までアップロードできます
+        最大5枚までアップロードできます
       -# .main__image__upload
       -#   %label
       -#     %input.main__image__upload-box{type: "file"}
@@ -20,21 +20,28 @@
       -#     %p.main__image__upload-explain
       -#       ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード   
         
-      #image-box-1
-        .item-num-0#image-box__container
-          - @product.images.each do |image|
-            = image_tag image.image.url
-          = f.fields_for :images do |i|
-            .input-area
-              = i.file_field :image, type: 'file', name: "product[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
-              %label{for: "img-file"}
-                %i.fas.fa-camera 画像を添付する
-        - if @product.errors.any?
-          - if @product.errors[:image]
-            .error-messages
-              - @product.errors.full_messages_for(:image).each do |error|
-                .error-message
-                  画像がありません
+    .exhibit__main__itemProfile__inputForm__sellImage__upload__box
+      .prev-content
+        - @product.images.each do |image|
+          .preview-box
+            .upper-box
+              = image_tag image.image.url, width: "120", height: "120", alt: "preview"
+            .lower-box
+              .update-box
+                %label.edit-btn 
+              .delete-box
+                .delete-btn
+                  %span 削除
+      .label-content
+        = f.label :"product_attributes_#{@product.images.length}_image", class: "label-box", id: "label-box--#{@product.images.length}" do
+          %pre.label-box__text-visible ファイルを選択
+      .hidden-content
+        = f.fields_for :images do |i|
+          = i.file_field :image, class: "hidden-field"
+          = i.check_box:_destroy, class: "hidden-checkbox"
+        - @product.images.length.upto(4) do |i|
+          %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+
 
     .main__name
       %h3

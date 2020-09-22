@@ -10,7 +10,7 @@
       %span.required-tag
         必須
       %p.main__image__explain
-        最大3枚までアップロードできます
+        最大5枚までアップロードできます
       -# .main__image__upload
       -#   %label
       -#     %input.main__image__upload-box{type: "file"}
@@ -20,19 +20,19 @@
       -#     %p.main__image__upload-explain
       -#       ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード   
         
-      #image-box-1
-        .item-num-0#image-box__container
-          = f.fields_for :images do |i|
-            .input-area
-              = i.file_field :image, type: 'file', name: "product[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
-              %label{for: "img-file"}
-                %i.fas.fa-camera 画像を添付する
-        - if @product.errors.any?
-          - if @product.errors[:image]
-            .error-messages
-              - @product.errors.full_messages_for(:image).each do |error|
-                .error-message
-                  画像がありません
+    .exhibit__main__itemProfile__inputForm__sellImage__upload__box
+      .prev-content
+      .label-content
+        %label{for: "product_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+          %pre.label-box__text-visible ファイルを選択
+      .hidden-content
+        = f.fields_for :images do |i|
+          = i.file_field :image, class: "hidden-field"
+          %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
+          %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
+          %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
+          %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
+
 
     .main__name
       %h3
