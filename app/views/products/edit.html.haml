@@ -33,7 +33,7 @@
                 .delete-btn
                   %span 削除
       .label-content
-        = f.label :"product_attributes_#{@product.images.length}_image", class: "label-box", id: "label-box--#{@product.images.length}" do
+        = f.label :"images_attributes_#{@product.images.length}_image", class: "label-box", id: "label-box--#{@product.images.length}" do
           %pre.label-box__text-visible ファイルを選択
       .hidden-content
         = f.fields_for :images do |i|

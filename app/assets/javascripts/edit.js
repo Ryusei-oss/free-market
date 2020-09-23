@@ -126,22 +126,19 @@ $(document).on('turbolinks:load', function(){
       }
     });
   });
-})
-
+});
 
 
 
 
 // 商品説明文カウント引継ぎ
-$(function(){
-  $(document).ready(function(){
-    var count = $('#product_explanation').val().length;
-    $('.main__description__counter-js').text(count);
-  });
+$(document).on('turbolinks:load', function(){
+  var count = $('#product_explanation').val().length;
+  $('.main__description__counter-js').text(count);
 });
 
 // 販売手数料の引継ぎ
-$(function(){
+$(document).on('turbolinks:load', function(){
   $(document).ready(function(){
     var inputPrice = Number($('#product_price').val());
     if(inputPrice >= 300 && inputPrice < 10000000){
