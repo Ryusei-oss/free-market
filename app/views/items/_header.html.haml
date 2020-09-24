@@ -7,18 +7,27 @@
       .header2__main--right__box
         = link_to image_tag("icon/icon-search 1.png",class: "icon"),'#'
   .header2__under
-    = link_to "#", class: "header2__under--catBtn" do
-      カテゴリ
-    = link_to "#", class: "header2__under--bldBtn" do
-      ブランド
-    - if user_signed_in?
-      = link_to user_path(current_user), class: "header2__under--loginBtn" do
-        マイページ
-      = link_to destroy_user_session_path, method: :delete, class: "header2__under--newBtn" do
-        ログアウト
-    - else
-      = link_to new_user_session_path, class: "header2__under--loginBtn" do
-        ログイン
-      = link_to new_user_registration_path, class: "header2__under--newBtn" do
-        新規会員登録
+    %ul.dropdwn
+      %li
+        カテゴリ
+        %ul
+          - @category.each do |parent|
+            %li
+              = link_to parent.name, "#", class: "touch"
+              %ul
+                - parent.children.each do |child| 
+                  %li
+                    = link_to child.name, "#", class: "touch"
+                    %ul
+                      - child.children.each do |grandchild|
+                        %li
+                          = link_to grandchild.name, "#", class: "touch"
+      %li
+        ブランド
+      %li
+        = link_to sessions_path, class: "" do
+          ログイン
+      %li
+        = link_to registrations_path, class:"" do
+          新規会員登録
 
