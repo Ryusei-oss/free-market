@@ -3,10 +3,16 @@ class ProductsController < ApplicationController
       @products = Product.includes(:images).order('created_at DESC')
     end
     def show
-    
+      @product = Product.find(params[:id])
+      if @product.brand_id
+        @brand = Bland.find(@product.brand_id)
+      end
     end
 
     def new
+      if !current_user
+        redirect_to root_path
+      end
       @product = Product.new
       @product.images.new
       @category_parent = Category.where("ancestry is null")
@@ -24,6 +30,21 @@ class ProductsController < ApplicationController
       end
     end
   
+    def edit
+    end
+
+    def update
+    end
+
+    def destroy
+      @product = Product.find(params[:id])
+      if @product.destroy
+        redirect_to root_path
+      else
+        render :edit
+      end
+    end
+
     def category_children
       @category_children = Category.find("#{params[:parent_id]}").children
     end
