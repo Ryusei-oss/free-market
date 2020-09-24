@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 describe Product do
+  
   describe '#create' do
-
-
     it "正常の動作" do
       product = build(:product)
       expect(product).to be_valid
@@ -72,15 +71,38 @@ describe Product do
       product.valid?
       expect(product.errors[:category]).to include("must exist")
     end
-    
-    #image: nilの時にエラー
-    it "imageがない場合は登録できないこと" do
+  end  
+
+  describe '#update' do
+    # 1.変更可能な項目が存在すれば登録できること
+    it "商品の編集保存が可能なこと" do
       product = build(:product)
-      product.images[0].image = nil
-      img = product.images[0]
-      img.valid?
-      expect(img.errors[:image]).to include("can't be blank")
+      expect(product).to be_valid
     end
+
+    # 2.nameが空だと登録できないこと
+    it "nameがない場合は登録できないこと" do
+      product = build(:product, name: nil)
+      product.valid?
+      expect(product.errors[:name]).to include("can't be blank")
+    end
+
+    # 3.explanationが空だと登録できないこと
+    it "explanationがない場合は登録できないこと" do
+      product = build(:product, explanation: nil)
+      product.valid?
+      expect(product.errors[:explanation]).to include("can't be blank")
+    end
+
+    # 4.priceが空だと登録できないこと
+    it "priceがない場合は登録できないこと" do
+      product = build(:product, price: nil)
+      product.valid?
+      expect(product.errors[:price]).to include("is not a number")
+    end
+  end
+
+
 
     #=======その他バリデーション違反のチェック
 
@@ -107,4 +129,27 @@ describe Product do
       expect(product.errors[:explanation]).to include("is too long (maximum is 1000 characters)")
     end
   end
-end
+
+
+#image: nilの時にエラー
+describe Image do
+  describe '#create' do
+    it "imageがない場合は登録できないこと" do
+      product = build(:product)
+      product.images[0].image = nil
+      img = product.images[0]
+      img.valid?
+      expect(img.errors[:image]).to include("can't be blank")
+    end
+  end 
+
+  describe '#update' do
+    it "imageがない場合は登録できないこと" do
+      product = build(:product)
+      product.images[0].image = nil
+      img = product.images[0]
+      img.valid?
+      expect(img.errors[:image]).to include("can't be blank")
+    end
+  end
+end 
