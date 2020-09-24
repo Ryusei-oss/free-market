@@ -61,7 +61,7 @@
         .error-messages#error-text
       .main__description__counter
         %span.main__description__counter-js
-          0
+          = @product.explanation.length
         %span
           &frasl; 1000
     .main__detail
@@ -141,15 +141,17 @@
             .main__price__selling__fee__right-label
               販売手数料（10%）
           %span.fee_value
-            ー
+            ¥
+            = (@product.price*0.1).round(0)
         .main__price__selling__profit
           .main__price__selling__profit__right
             .main__price__selling__profit__right-label
               販売利益
           %span.profit_value
-            ー
+            ¥
+            = (@product.price-(@product.price*0.1)).round(0)
     .main__btn
-      = f.submit "出品する", class: "main__btn__exhibition"
+      = f.submit "編集する", class: "main__btn__exhibition"
       %button.main__btn__draft{type: "submit"}
         下書きに保存
       %a.main__btn__link{href: "#"}

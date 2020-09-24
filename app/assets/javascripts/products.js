@@ -56,7 +56,7 @@
 
 
 // 商品説明文カウント
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('.main__description-box').keyup(function(){
     var count = $(this).val().length;
     $('.main__description__counter-js').text(count);
@@ -64,7 +64,7 @@ $(function(){
 });
 
 //販売価格手数料利益計算
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('.main__price__selling__price__box-input').change(function(){
     var inputPrice = Number($(this).val());
     if(inputPrice >= 300 && inputPrice < 10000000){
