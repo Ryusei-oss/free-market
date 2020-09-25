@@ -10,16 +10,7 @@
       %span.required-tag
         必須
       %p.main__image__explain
-        最大5枚までアップロードできます
-      -# .main__image__upload
-      -#   %label
-      -#     %input.main__image__upload-box{type: "file"}
-
-      -#     .main__image__upload-icon
-      -#       = image_tag src="icon/icon_camera.png", size: "24x24", class: "camera"
-      -#     %p.main__image__upload-explain
-      -#       ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード   
-        
+        最大5枚までアップロードできます        
     .exhibit__main__itemProfile__inputForm__sellImage__upload__box
       .prev-content
         - @product.images.each do |image|
