@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe ProductsController do
-  let(:category) { create(:category) }
   let(:user) { create(:user) }
 
   describe 'GET #new' do
@@ -15,13 +14,13 @@ describe ProductsController do
   describe 'POST #create' do
     it "商品が正しく登録されること" do
       sign_in(user)
-      product_params = attributes_for(:product, category_id: category.id)
+      product_params = attributes_for(:product, category_id: 3)
       expect{ post :create, params: { product: product_params } }.to change(Product, :count).by(1)
     end
 
     it "登録成功時に root_pathに遷移すること" do
       sign_in(user)
-      product_params = attributes_for(:product, category_id: category.id)
+      product_params = attributes_for(:product, category_id: 3)
       post :create, params: { product: product_params }
       expect(response).to redirect_to(root_path)
     end
@@ -37,24 +36,26 @@ describe ProductsController do
   describe 'GET #edit' do
     it "編集画面に正しく遷移すること" do
       sign_in(user)
-      product_params = attributes_for(:product, category_id: category.id)
-      get :edit, params: { product: product_params }
+      product = create(:product, category_id: 3)
+      get :edit, params: {id: product}
       expect(response).to render_template :edit
     end
   end
-
+  
   describe 'PATCH #update' do
     it "編集成功時に商品詳細画面 product_pathに遷移すること" do
       sign_in(user)
-      product_params = attributes_for(:product, category_id: category.id)
-      patch :update, params: { product: product_params }
-      expect(response).to render_template :show
+      product = create(:product, category_id: 3)
+      product_params = attributes_for(:product, category_id: 3)
+      patch :update, params:  { id: product.id, product: product_params }
+      expect(response).to redirect_to product_path(product.id)
     end
-
+    
     it "編集失敗時に編集画面のまま留まっているか" do
       sign_in(user)
-      product_params = attributes_for(:product)
-      patch :update, params: { product: product_params }
+      product = create(:product, category_id: 3)
+      product_params = attributes_for(:product, name: "", category_id: 3)
+      patch :update, params: { id: product.id, product: product_params }
       expect(response).to render_template :edit
     end
   end

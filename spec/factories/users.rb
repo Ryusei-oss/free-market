@@ -1,7 +1,6 @@
 FactoryBot.define do
 
   factory :user do
-    id {1}
     last_name              {"阿部"}
     first_name             {"太朗"}
     last_name_kana         {"あべ"}
@@ -9,7 +8,8 @@ FactoryBot.define do
     birthday               {"1999-1-1"}
     nickname               {"abec"}
     tell                   {"09099999999"}
-    email                 {"kkk@gmail.com"}
+    # email                 {"kkk@gmail.com"}
+    email                 { Faker::Internet.free_email }
     password              {"000000000"}
     password_confirmation {"000000000"}
   end

@@ -25,8 +25,8 @@ describe User do
 #   一意性のテスト
 #=====================================================================================
     it "email一意性チェック" do
-      user = create(:user)
-      another_user = build(:user)
+      user = create(:user, email: "example@example.com" )
+      another_user = build(:user, email: "example@example.com" )
       another_user.valid?
       expect(another_user.errors[:email]).to include("has already been taken")
     end

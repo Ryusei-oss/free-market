@@ -4,7 +4,7 @@ describe Product do
   
   describe '#create' do
     it "正常の動作" do
-      product = build(:product)
+      product = build(:product, user_id: 1, category_id: 3)
       expect(product).to be_valid
     end
     #======= not null 制約のチェック
@@ -76,7 +76,7 @@ describe Product do
   describe '#update' do
     # 1.変更可能な項目が存在すれば登録できること
     it "商品の編集保存が可能なこと" do
-      product = build(:product)
+      product = build(:product, user_id: 1, category_id: 3)
       expect(product).to be_valid
     end
 
