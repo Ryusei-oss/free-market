@@ -26,9 +26,6 @@
       .method
         .method-of-payment
           .method-of-payment__title
-            = form_with url: product_sold_path(@product.id) do
-              :plain
-                <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_c5793331e39a6960b2f6a476"></script>
       .address
         .shopping-address
           .shopping-address__title
@@ -45,9 +42,11 @@
             郵便局/コンビニ受取をご希望の方は、購入後に
             %b.emphasis 取引画面
             から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
-          -# %p.payment-completion
-          -#   支払い方法の入力を完了してください。
-          -# %button.purchase{"data-test": "transaction-buy-purchase", disabled: "", tabindex: "-1", type: "button"} 購入する
+            %p.payment-completion
+              クレジットカードで支払います
+            = form_for :purchase, url: product_sold_path do |f|
+              = f.submit '支払う'
+
   .products-footer
     .products-footer__content
       %ul.products-footer__content__list
