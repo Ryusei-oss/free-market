@@ -23,23 +23,10 @@
             支払金額
           %span.money
           = "#{@product.price}円"  
-        .point
-          -# .point-title
-          -#   %span.style-check__box{"data-test": "point-checkbox"}
-          -#     %span.style__input
-          -#       %input{disabled: "disabled", name: "furima-points", type: "checkbox", value: ""}
-          -#       %svg{"aria-hidden": "true", fill: "#ffffff", "fill-rule": "evenodd", height: "16", viewbox: "0 0 24 24", width: "16"}
-            -# = image_tag src="/assets/icon_brand.png", size: "14x14"
-            -# %p.point-use ポイントの使用
-          -# %p.have-ponint 所持ポイント :P0
       .method
         .method-of-payment
           .method-of-payment__title
-            -# %h3.method-of-payment__paragraph 支払い方法
-            -# = link_to "http//furima.tokyo/" , class: "register" do
-            -#   %svg{"aria-hidden": "true", fill: "#0095ee", "fill-rule": "evenodd", height: "16", viewbox: "0 0 24 24", width: "16"}
-            -#   %span.entry 登録してください
-            = form_with url: product_sold_path do
+            = form_with url: product_sold_path(@product.id) do
               :plain
                 <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_c5793331e39a6960b2f6a476"></script>
       .address
@@ -58,9 +45,9 @@
             郵便局/コンビニ受取をご希望の方は、購入後に
             %b.emphasis 取引画面
             から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
-          %p.payment-completion
-            支払い方法の入力を完了してください。
-          %button.purchase{"data-test": "transaction-buy-purchase", disabled: "", tabindex: "-1", type: "button"} 購入する
+          -# %p.payment-completion
+          -#   支払い方法の入力を完了してください。
+          -# %button.purchase{"data-test": "transaction-buy-purchase", disabled: "", tabindex: "-1", type: "button"} 購入する
   .products-footer
     .products-footer__content
       %ul.products-footer__content__list

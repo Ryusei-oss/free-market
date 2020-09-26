@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # binding.pry
+    @cards = Card.where(user_id: current_user.id)
   end
 
   def sold
@@ -24,10 +24,13 @@ class ItemsController < ApplicationController
     @purchase = Purchase.new(user_id: current_user.id, product_id: params[:product_id])
     @purchase.save
     Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
+    @cards = Card.where(user_id: current_user.id)
+    customer = Payjp::Customer.retrieve(@cards.customer_id)
+    card = customer.cards.retrieve(@cards.card_id)
     begin
       Payjp::Charge.create(
         amount: @product.price, # 決済する値段
-        card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+        card: card, # フォームを送信すると作成・送信されてくるトークン
         currency: 'jpy')
     rescue Payjp::InvalidRequestError
       redirect_to items_path
