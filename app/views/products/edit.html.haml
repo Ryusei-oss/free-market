@@ -64,7 +64,7 @@
       %span.required-tag
         必須
       .main__detail__category-space
-        = f.collection_select :category_id, @category_parent, :id, :name, {prompt:"選択してください"}, {class: "main__detail__category-box"}
+        = f.collection_select :category_id, @category_parent, :id, :name, { prompt:"選択してください", selected:@parent_category.id }, {class: "main__detail__category-box"}
       .main__detail__category-space
         = f.collection_select :category_id, @category_children, :id, :name, {prompt:"選択してください"}, {class: "main__detail__category-children"}
       .main__detail__category-space
