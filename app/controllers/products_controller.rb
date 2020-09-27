@@ -6,7 +6,8 @@ class ProductsController < ApplicationController
       @products = Product.includes(:images).order('created_at DESC')
     end
     def show
-      @category = Category.where(params[:id])
+      @category = Category.all.order("id ASC").limit(13)
+      @same_category = Category.where(params[:id])
       @grandchild_category = @product.category
       @child_category = @grandchild_category.parent
       @parent_category = @product.category.parent.parent
