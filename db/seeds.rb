@@ -1,6 +1,6 @@
 #親階層
 ##レディース
-# if !Category.find_by_id(1)
+if !Category.find_by_id(1)
   parents = ["レディース", "メンズ", "ベビー・キッズ", "インテリア・住まい・小物", "本・音楽・ゲーム", "おもちゃ・ホビー・グッズ", "コスメ・香水・美容", "家電・スマホ・カメラ", "スポーツ・レジャー", "ハンドメイド", "チケット", "自動車・オートバイ", "その他"]  
   children = 
   [
@@ -209,8 +209,9 @@
       g += 1
     end
   end
+end
 # end
-# end
+
 if !User.find_by_id(1)
   user = User.new(last_name: '山田',first_name: '太朗', last_name_kana: 'ヤマダ', first_name_kana: 'タロウ',
   birthday: '2020-01-01', nickname: 'ヤマタロー', tell: '11111111',
@@ -239,5 +240,4 @@ if !Product.find_by_id(1)
   product = Product.create(name: "galaxy",price: 1000,explanation: "これはgalaxyです",quality_id: 1,
     shipping_charge_id: 1,delivery_date_id: 1,trading_status: "出品中",area_id: 1,user_id: 2, category_id: 3, 
     images_attributes: [image: image])
-
 end
