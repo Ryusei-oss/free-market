@@ -1,5 +1,4 @@
 $(function () {
-
   // パブリックキーを書いてpayjpと通信できる状態にする
   Payjp.setPublicKey('pk_test_c5793331e39a6960b2f6a476');
   // 投稿ボタンを定義
@@ -35,12 +34,4 @@ $(function () {
       });
     });
   }
-
-  // 正しく購入できた時のアラート
-  $(".payjp-button").on(function(){
-    alert("購入ができました");
-  });
-    
-  
-
 });

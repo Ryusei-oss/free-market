@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   get '/sessions', to: 'items#sessions'
   get 'logout', to: 'users#logout'
   get '/register', to: 'items#register'
-  
-  get '/purchase', to: 'items#purchase'
 
   resources :products do
     get '/purchase', to: 'items#purchase'

@@ -12,17 +12,17 @@ class CardsController < ApplicationController
   end
 
   def create
-    if params[:payjp_token]
-      #payjp への顧客情報とカード情報を登録
-      begin 
-        customer = Payjp::Customer.create(card: params[:payjp_token]) 
-        #Card DBへの登録
-        @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-        @card.save
-        redirect_to user_path(current_user)
-      rescue Payjp::InvalidRequestError
-        render "new"
-      end
+    if !params_payjp[:payjp_token]
+      return
+    end
+    begin 
+      customer = Payjp::Customer.create(card: params_payjp[:payjp_token]) 
+      #Card DBへの登録
+      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      @card.save
+      redirect_to user_path(current_user)
+    rescue Payjp::InvalidRequestError
+      render "new"
     end
   end
 
@@ -40,4 +40,7 @@ class CardsController < ApplicationController
     Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
   end
 
+  def params_payjp
+    params.permit(:"security-code", :payjp_token)
+  end
 end

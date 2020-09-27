@@ -41,7 +41,7 @@
     - if @cards
       - @cards.each do |card|
         %div
-          = link_to card_path(@cards.ids), method: :delete do
+          = link_to card_path(card.id), method: :delete do
             = card.id
             削除する
     - else
