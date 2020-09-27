@@ -58,24 +58,22 @@
      &__under{
          height: 40px;
          line-height: 40px;
-
+         width: 100%;
          &--catBtn{
              text-decoration: none;
-             padding-right: 50px;
              color: black;
              font-size: 14px;
          }
 
          &--bldBtn{
             text-decoration: none;
-            padding-right: 685px;
             color: black;
             font-size: 14px;
         }
 
         &--loginBtn{
             text-decoration: none;
-            padding-right: 20px;
+            margin-left: 130px;
             color: black;
             font-size: 14px;
         }
@@ -886,4 +884,69 @@
         height: 60px;
         
     }
+}
+
+fieldset, img {
+    width: 120px;
+}
+.hidden-content{
+    display: none;
+}
+.prev-content{
+    padding-left: 40px;
+}
+.label-box__text-visible{
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+// =======プルダウンメニューの実装===================================
+.dropdwn{
+    display: flex;
+    height: 3rem;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.dropdwn>li{
+    width: 25%;
+    z-index:999900;
+}
+
+.dropdwn li {
+    list-style: none;
+    position: relative;
+    display: block;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+.dropdwn li li{
+    height: 0;
+    overflow: hidden;
+    transition: .5s;
+    background-color:white;
+    border-radius: 3px;
+    
+}
+
+.dropdwn li:hover > ul > li {
+    height: 2.5rem;
+    overflow: visible;
+    border: solid 1px gray;
+}
+
+.dropdwn li ul li ul {
+    left: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.dropdwn li:hover > .touch{
+    background-color:#3AB9BC;
+    display: block;
 }

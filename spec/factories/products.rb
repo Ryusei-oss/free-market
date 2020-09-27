@@ -1,7 +1,7 @@
 FactoryBot.define do
 
   factory :product do
-    association :category
+    association :user
     name  {"test_item"}
     price {1000}
     explanation {"これは動作テスト用の商品です"}
@@ -10,8 +10,7 @@ FactoryBot.define do
     delivery_date_id {1}
     trading_status {"出品中"}
     area_id {1}
-    user_id {1}
-    brand_id {nil}
+    brand_id {}
     after(:build) do |product|                          
       product.images << build(:image) 
     end  
