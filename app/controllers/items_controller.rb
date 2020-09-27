@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
   before_action :set_product, except: :sold
+    before_action :set_product, only: [:purchase, :sold]
 
   require 'payjp'
   def index
     @products = Product.includes([:images, :user]).last(4).reverse
 
     @products2 = Product.where(category_id:3).last(4).reverse
-
   end
 
   def items
@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
       redirect_to items_path
     end
     @product = Product.find(params[:product_id])
-    
   end
 
   def create
