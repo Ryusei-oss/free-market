@@ -1,7 +1,7 @@
 FactoryBot.define do
 
   factory :category do
-    name {"レディース"}
+    name {"Tシャツ/カットソー(半袖/袖なし)"}
   end
 
 end
