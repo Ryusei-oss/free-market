@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'cards/new'
-  get 'cards/show'
   devise_for :users
   #resources :products, only: :show
   resources :items 

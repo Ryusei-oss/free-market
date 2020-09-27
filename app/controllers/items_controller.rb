@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_product, except: :sold
+
   require 'payjp'
   def index
     @products = Product.includes([:images, :user]).last(4).reverse
@@ -13,7 +15,6 @@ class ItemsController < ApplicationController
 
   def purchase
     card = Card.where(user_id: current_user.id)
-    binding.pry
     if !card.present?
       redirect_to items_path
     end
@@ -26,7 +27,6 @@ class ItemsController < ApplicationController
   end
 
   def sold
-    @product = Product.find(params[:product_id])
     @purchase = Purchase.new(user_id: current_user.id, product_id: params[:product_id])
     @purchase.save
     Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
@@ -42,4 +42,10 @@ class ItemsController < ApplicationController
       redirect_to items_path
     end
   end
+
+  private
+  def set_product
+    @product = Product.find(params[:product_id])
+  end
+
 end
