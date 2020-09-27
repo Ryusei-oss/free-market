@@ -106,7 +106,7 @@
     
     .product__comment--btn
       %button.btn
-        = link_to product_purchase_path(@product.id) do
+        = link_to purchase_path do
           %i.fa.fa-comment コメントする
       - if @product.user == current_user
         %button.btn
@@ -117,7 +117,7 @@
             %i.fa.fa-comment 削除する
       - else
         %button.btn
-          = link_to product_purchase_path(@product.id) do
+          = link_to purchase_path do
             %i.fa.fa-comment 購入する
 
   .product__number
@@ -142,4 +142,9 @@
           %p.tax (税込)
           %p.good ★０
     
+    
+
+
+
+
 = render partial: 'items/fotter'
