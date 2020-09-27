@@ -2,23 +2,23 @@
 .attribute
   %ul.attribute__ul
     %li
-      = link_to root_path do
+      = link_to items_path do
         FURIMA
     %li
       %i.fa.fa-angle-right
     %li
       = link_to "#" do
-        = @parent_category.name
+        = @product.category.parent.parent.name
     %li
       %i.fa.fa-angle-right
     %li
       = link_to "#" do
-        = @child_category.name
+        = @product.category.parent.name
     %li
       %i.fa.fa-angle-right
     %li
       = link_to "#" do
-        = @grandchild_category.name
+        = @product.category.name
     %li
       %i.fa.fa-angle-right
     %li
@@ -58,13 +58,13 @@
             %th.left カテゴリー
             %td.right
               = link_to "#" , class: "link" do
-                = @parent_category.name
+                = @product.category.parent.parent.name
               %br/
               = link_to "#" , class: "link" do
-                = @child_category.name
+                = @product.category.parent.name
               %br/
               = link_to "#" , class: "link" do
-                = @grandchild_category.name
+                = @product.category.name
           - if @bland
             %tr
               %th.left ブランド
