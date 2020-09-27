@@ -24,12 +24,6 @@
                           = link_to grandchild.name, "#", class: "touch"
       %li
         ブランド
-      -# %li
-      -#   = link_to sessions_path, class: "" do
-      -#     ログイン
-      -# %li
-      -#   = link_to registrations_path, class:"" do
-      -#     新規会員登録
       - if user_signed_in?
         %li
           = link_to user_path(current_user), class: "header2__under--loginBtn" do

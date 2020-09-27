@@ -1,7 +1,6 @@
 FactoryBot.define do
 
   factory :product do
-    # association :category
     association :user
     name  {"test_item"}
     price {1000}
@@ -11,10 +10,7 @@ FactoryBot.define do
     delivery_date_id {1}
     trading_status {"出品中"}
     area_id {1}
-    # user_id {1}
     brand_id {}
-    # category_id {}
-    
     after(:build) do |product|                          
       product.images << build(:image) 
     end  

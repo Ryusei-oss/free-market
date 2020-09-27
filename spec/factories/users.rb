@@ -8,7 +8,6 @@ FactoryBot.define do
     birthday               {"1999-1-1"}
     nickname               {"abec"}
     tell                   {"09099999999"}
-    # email                 {"kkk@gmail.com"}
     email                 { Faker::Internet.free_email }
     password              {"000000000"}
     password_confirmation {"000000000"}
