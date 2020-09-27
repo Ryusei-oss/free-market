@@ -886,6 +886,20 @@
     }
 }
 
+fieldset, img {
+    width: 120px;
+}
+.hidden-content{
+    display: none;
+}
+.prev-content{
+    padding-left: 40px;
+}
+.label-box__text-visible{
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
 // =======プルダウンメニューの実装===================================
 .dropdwn{
     display: flex;

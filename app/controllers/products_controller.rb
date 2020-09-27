@@ -1,9 +1,16 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :edit, :update]
+  before_action :set_category_ancestry, only: [:new, :edit]
+  
     def index
       @products = Product.includes(:images).order('created_at DESC')
     end
     def show
-      @product = Product.find(params[:id])
+      @category = Category.where(params[:id])
+      @grandchild_category = @product.category
+      @child_category = @grandchild_category.parent
+      @parent_category = @product.category.parent.parent
+
       if @product.brand_id
         @brand = Bland.find(@product.brand_id)
       end
@@ -15,7 +22,6 @@ class ProductsController < ApplicationController
       end
       @product = Product.new
       @product.images.new
-      @category_parent = Category.where("ancestry is null")
     end
   
     def create
@@ -31,13 +37,25 @@ class ProductsController < ApplicationController
     end
   
     def edit
+      @grandchild_category = @product.category
+      @child_category = @grandchild_category.parent 
+
+      @parent_category = @product.category.parent.parent
+      @category_children = @product.category.parent.parent.children
+      @category_grandchildren = @product.category.parent.children
     end
 
     def update
+      if @product.update(update_params)
+        redirect_to product_path(@product)
+      else
+        render :edit
+      end
     end
 
+
+
     def destroy
-      @product = Product.find(params[:id])
       if @product.destroy
         redirect_to root_path
       else
@@ -54,7 +72,21 @@ class ProductsController < ApplicationController
     end
 
     private
+
+    def set_product
+      @product = Product.find(params[:id])
+    end
+
+    def set_category_ancestry
+      @category_parent = Category.where("ancestry is null")
+    end
+
     def product_params
       params.require(:product).permit(:name,:price,:explanation,:quality_id,:shipping_charge_id,:delivery_date_id,:trading_status,:area_id, :category_id, :brand_id, images_attributes: [:image]).merge(user_id: current_user.id)
     end
+
+    def update_params
+      params.require(:product).permit(:name,:price,:explanation,:quality_id,:shipping_charge_id,:delivery_date_id,:trading_status,:area_id, :category_id, :brand_id, [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
+    end
+
 end
