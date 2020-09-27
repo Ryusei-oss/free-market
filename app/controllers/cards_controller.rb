@@ -13,11 +13,14 @@ class CardsController < ApplicationController
 
   def create
     if params[:payjp_token]
-      customer = Payjp::Customer.create(card: params[:payjp_token])
-      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-      if @card.save
+      #payjp への顧客情報とカード情報を登録
+      begin 
+        customer = Payjp::Customer.create(card: params[:payjp_token]) 
+        #Card DBへの登録
+        @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+        @card.save
         redirect_to user_path(current_user)
-      else
+      rescue Payjp::InvalidRequestError
         render "new"
       end
     end
