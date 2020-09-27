@@ -2,7 +2,6 @@
   .middle-bar__contents__me
     .me
       .me__icon
-        //= image_tag("material/pict/pict-reason-01.jpg", style:"width:49vw; height: 23vh;")
         %div.me__icon--tag
           ユーザーネーム
         .jus-cent
@@ -37,12 +36,12 @@
           過去の取引
       .purchase__lists
         購入した商品はありません
-    %div クレジットカード
-    - if @cards
-      - @cards.each do |card|
-        %div
-          = link_to card_path(card.id), method: :delete do
-            = card.id
-            削除する
-    - else
-      登録されていません
+      %div
+        %p クレジットカード
+        - if @cards
+          - @cards.each do |card|
+            %div
+              = link_to card_path(card.id), method: :delete do
+                クレジットカード情報を削除する
+        - else
+          登録されていません
