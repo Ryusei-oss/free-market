@@ -37,3 +37,12 @@
           過去の取引
       .purchase__lists
         購入した商品はありません
+    %div クレジットカード
+    - if @cards
+      - @cards.each do |card|
+        %div
+          = link_to card_path(@cards.ids), method: :delete do
+            = card.id
+            削除する
+    - else
+      登録されていません
