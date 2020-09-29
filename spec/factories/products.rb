@@ -2,6 +2,7 @@ FactoryBot.define do
 
   factory :product do
     association :user
+    association :category
     name  {"test_item"}
     price {1000}
     explanation {"これは動作テスト用の商品です"}
