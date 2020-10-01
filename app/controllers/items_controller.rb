@@ -10,24 +10,22 @@ class ItemsController < ApplicationController
     @products2 = Product.where(category_id:3).last(4).reverse
   end
 
-  # def items
-  #   @products = Product.includes([:images, :user]).order('created_at desc')
-  # end
-
   def purchase
+    if !@address = Address.find_by(user_id: current_user.id)
+      redirect_to new_user_address_path(current_user.id)
+      return
+    end
     @product = Product.find(params[:product_id])
     if @product.trading_status == '売り切れ'
       redirect_to items_path
+      return
     end
     card = Card.where(user_id: current_user.id)
     if !card.present?
       redirect_to items_path
+      return
     end
   end
-
-  # def create
-  #   @cards = Card.where(user_id: current_user.id)
-  # end
 
   def sold
     if @product.trading_status == '売り切れ'
