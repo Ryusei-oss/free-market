@@ -23,6 +23,15 @@ $(document).on('turbolinks:load', function(){
 });
 
 // フォーム入力チェック
+//画像が未入力
+$(function(){
+  $('.main__btn__exhibition').on('click', function(){
+    if(!$('.upper-box').length){
+      alert('画像は1枚以上登録してください');
+    }
+  });
+});
+
 //商品名が未入力
 $(function(){
   $('.main__name__product-box').blur(function(){

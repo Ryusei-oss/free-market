@@ -28,7 +28,7 @@
           %pre.label-box__text-visible ファイルを選択
       .hidden-content
         = f.fields_for :images do |i|
-          = i.file_field :image, class: "hidden-field"
+          = i.file_field :image, class: "hidden-field", required: true
           = i.check_box:_destroy, class: "hidden-checkbox"
         - @product.images.length.upto(4) do |i|
           %input{name: "product[images_attributes][#{i}][image]", id: "product_images_attributes_#{i}_image", class:"hidden-field", type:"file"}

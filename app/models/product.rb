@@ -6,6 +6,7 @@ class Product < ApplicationRecord
   validates :area_id, exclusion: {in: %w(選択してください) }, presence: true
   validates :delivery_date_id,  exclusion: {in: %w(選択してください) }, presence: true
   validates :price, numericality: [greater_than: 300, less_than: 10000000], presence: true
+  validates_associated :images, presence: true
 
   belongs_to :category
   belongs_to :user
