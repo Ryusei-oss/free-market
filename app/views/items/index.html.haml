@@ -128,7 +128,9 @@
         -if product.trading_status =='出品中'
           .picup__top--contents__no1
             .picup__top--contents__no1--top
-              = link_to image_tag("#{product.images[0].image.url}", class:"image"), product_path(product.id)
+              - if product.images[0].image.url
+                = link_to image_tag("#{product.images[0].image.url}", class:"image"), product_path(product.id)
+              - end
             .picup__top--contents__no1--under
               %p
                 = product.name
