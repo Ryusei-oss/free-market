@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function(){
 
 // フォーム入力チェック
 //画像が未入力
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('.main__btn__exhibition').on('click', function(){
     if(!$('.upper-box').length){
       alert('画像は1枚以上登録してください');
