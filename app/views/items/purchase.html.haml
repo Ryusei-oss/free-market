@@ -33,9 +33,15 @@
             = link_to "#" , class: "shopping-address__change" do
               変更する
           .shopping-address__text
-            %p 〒000-0000
-            %p 東京都港区芝公園
-            %p 山本太郎
+            %p  
+              〒
+              = @address.postal_code
+            %p 
+              = @address.area
+              = @address.city
+              = @address.building
+            %p 
+              = current_user.nickname
       .precautions
         .detail
           %p.detail__title
