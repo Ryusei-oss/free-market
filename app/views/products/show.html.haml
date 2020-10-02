@@ -105,20 +105,21 @@
       %p.buttom 不快な言葉遣いなどは利用制限や退会処分となることがあります。
     
     .product__comment--btn
-      %button.btn
-        = link_to product_purchase_path(@product.id) do
-          %i.fa.fa-comment コメントする
-      - if @product.user == current_user
-        %button.btn
-          = link_to edit_product_path do
-            %i.fa.fa-comment 編集する
-        %button.btn
-          = link_to product_path(@product.id), method: :delete do
-            %i.fa.fa-comment 削除する
-      - else
+      - if user_signed_in?
         %button.btn
           = link_to product_purchase_path(@product.id) do
-            %i.fa.fa-comment 購入する
+            %i.fa.fa-comment コメントする
+        - if @product.user == current_user
+          %button.btn
+            = link_to edit_product_path do
+              %i.fa.fa-comment 編集する
+          %button.btn
+            = link_to product_path(@product.id), method: :delete do
+              %i.fa.fa-comment 削除する
+        - else
+          %button.btn
+            = link_to product_purchase_path(@product.id) do
+              %i.fa.fa-comment 購入する
 
   .product__number
     .product__number--left

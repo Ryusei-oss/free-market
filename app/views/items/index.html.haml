@@ -130,7 +130,6 @@
             .picup__top--contents__no1--top
               - if product.images[0].image.url
                 = link_to image_tag("#{product.images[0].image.url}", class:"image"), product_path(product.id)
-              - end
             .picup__top--contents__no1--under
               %p
                 = product.name

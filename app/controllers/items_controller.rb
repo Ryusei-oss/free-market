@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_product, except: :sold
-    before_action :set_product, only: [:purchase, :sold]
+  before_action :set_product, only: [:purchase, :sold]
 
   require 'payjp'
   def index
