@@ -10,16 +10,7 @@
       %span.required-tag
         必須
       %p.main__image__explain
-        最大5枚までアップロードできます
-      -# .main__image__upload
-      -#   %label
-      -#     %input.main__image__upload-box{type: "file"}
-
-      -#     .main__image__upload-icon
-      -#       = image_tag src="icon/icon_camera.png", size: "24x24", class: "camera"
-      -#     %p.main__image__upload-explain
-      -#       ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード   
-        
+        最大5枚までアップロードできます        
     .exhibit__main__itemProfile__inputForm__sellImage__upload__box
       .prev-content
       .label-content
@@ -27,13 +18,11 @@
           %pre.label-box__text-visible ファイルを選択
       .hidden-content
         = f.fields_for :images do |i|
-          = i.file_field :image, class: "hidden-field"
+          = i.file_field :image, class: "hidden-field", required: true
           %input{class:"hidden-field", type: "file", name: "product[images_attributes][1][image]", id: "product_images_attributes_1_image" }
           %input{class:"hidden-field", type: "file", name: "product[images_attributes][2][image]", id: "product_images_attributes_2_image" }
           %input{class:"hidden-field", type: "file", name: "product[images_attributes][3][image]", id: "product_images_attributes_3_image" }
           %input{class:"hidden-field", type: "file", name: "product[images_attributes][4][image]", id: "product_images_attributes_4_image" }
-
-
     .main__name
       %h3
         商品名

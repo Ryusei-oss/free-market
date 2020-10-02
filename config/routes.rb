@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  #resources :products, only: :show
   resources :items 
-  resources :items
   resources :users, only: :show do
     resources :addresses
   end
